@@ -94,7 +94,7 @@
 
     <%= f.label :approver_id %>
     <!-- Input for approver_id start -->
-    <%= f.number_field :approver_id, class: approver_class, placeholder: "Enter approver" %>
+    <%= f.collection_select :approver_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for approver_id end -->
     <% if approver_was_invalid %>
       <% request.errors.full_messages_for(:approver).each do |message| %>

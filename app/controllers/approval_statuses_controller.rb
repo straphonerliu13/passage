@@ -3,7 +3,7 @@ class ApprovalStatusesController < ApplicationController
 
   # GET /approval_statuses
   def index
-    @approval_statuses = ApprovalStatus.all
+    @approval_statuses = ApprovalStatus.page(params[:page]).per(10)
   end
 
   # GET /approval_statuses/1

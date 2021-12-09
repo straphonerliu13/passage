@@ -3,7 +3,7 @@ class AttractionCategoriesController < ApplicationController
 
   # GET /attraction_categories
   def index
-    @attraction_categories = AttractionCategory.all
+    @attraction_categories = AttractionCategory.page(params[:page]).per(10)
   end
 
   # GET /attraction_categories/1

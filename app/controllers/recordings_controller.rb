@@ -3,7 +3,7 @@ class RecordingsController < ApplicationController
 
   # GET /recordings
   def index
-    @recordings = Recording.all
+    @recordings = Recording.page(params[:page]).per(10)
   end
 
   # GET /recordings/1

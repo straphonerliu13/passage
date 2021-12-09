@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = Request.all
+    @requests = Request.page(params[:page]).per(10)
   end
 
   # GET /requests/1

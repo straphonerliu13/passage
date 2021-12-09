@@ -3,7 +3,7 @@ class AttractionCommentsController < ApplicationController
 
   # GET /attraction_comments
   def index
-    @attraction_comments = AttractionComment.all
+    @attraction_comments = AttractionComment.page(params[:page]).per(10)
   end
 
   # GET /attraction_comments/1

@@ -3,7 +3,7 @@ class ExhibitsController < ApplicationController
 
   # GET /exhibits
   def index
-    @exhibits = Exhibit.all
+    @exhibits = Exhibit.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@exhibits.where.not(:exhibit_location_latitude => nil)) do |exhibit, marker|
       marker.lat exhibit.exhibit_location_latitude
       marker.lng exhibit.exhibit_location_longitude

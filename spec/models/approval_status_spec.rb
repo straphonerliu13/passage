@@ -4,6 +4,8 @@ RSpec.describe ApprovalStatus, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:requests) }
+
     end
 
     describe "InDirect Associations" do

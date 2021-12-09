@@ -1,6 +1,9 @@
 class Request < ApplicationRecord
   # Direct associations
 
+  belongs_to :status,
+             :class_name => "ApprovalStatus"
+
   belongs_to :exhibit
 
   belongs_to :attraction

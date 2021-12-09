@@ -3,6 +3,10 @@ class ApprovalStatus < ApplicationRecord
 
   # Direct associations
 
+  has_many   :requests,
+             :foreign_key => "status_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

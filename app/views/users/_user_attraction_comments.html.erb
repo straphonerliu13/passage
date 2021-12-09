@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Attraction Comments
+
+    <a data-toggle="collapse" href="#user_attraction_comments_new_form">
+      Add attraction comment
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.attraction_comments.each do |attraction_comment| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to attraction_comment, attraction_comment %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to attraction_comment, method: :delete, data: { confirm: "Do you really want to delete this attraction_comment" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_attraction_comments_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Modification Requests
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @attraction.modification_requests.each do |request| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/requests/<%= request.id %>">
+          <%= request %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

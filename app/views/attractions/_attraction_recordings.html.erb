@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Recordings
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @attraction.recordings.each do |recording| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/recordings/<%= recording.id %>">
+          <%= recording %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

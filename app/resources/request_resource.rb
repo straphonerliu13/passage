@@ -24,6 +24,14 @@ class RequestResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :main_attraction,
+             resource: AttractionResource
   has_one    :main_exhibit,
              resource: ExhibitResource
+
+  filter :attraction_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:main_attraction).where(:exhibits => {:attraction_id => value})
+    end
+  end
 end

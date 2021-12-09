@@ -8,6 +8,8 @@ class AttractionCategoryResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :attractions
+
   # Indirect associations
 
 end

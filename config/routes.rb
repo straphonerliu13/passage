@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requests
   resources :approval_statuses
   resources :visitor_demographics
   resources :attraction_categories

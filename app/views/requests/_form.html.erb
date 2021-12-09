@@ -1,0 +1,187 @@
+<% was_validated = request.errors.any? %>
+
+<%= form_with(model: request, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for request_name start -->
+  <div class="form-group">
+    <% request_name_class = "form-control" %>
+    <% request_name_was_invalid = request.errors.include?(:request_name) %>
+
+    <% if was_validated %>
+      <% if request_name_was_invalid %>
+        <% request_name_class << " is-invalid" %>
+      <% else %>
+        <% request_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :request_name %>
+    <!-- Input for request_name start -->
+    <%= f.text_field :request_name, class: request_name_class, placeholder: "Enter request name" %>
+    <!-- Input for request_name end -->
+    <% if request_name_was_invalid %>
+      <% request.errors.full_messages_for(:request_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for request_name end -->
+  <!-- Label and input for request_description start -->
+  <div class="form-group">
+    <% request_description_class = "form-control" %>
+    <% request_description_was_invalid = request.errors.include?(:request_description) %>
+
+    <% if was_validated %>
+      <% if request_description_was_invalid %>
+        <% request_description_class << " is-invalid" %>
+      <% else %>
+        <% request_description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :request_description %>
+    <!-- Input for request_description start -->
+    <%= f.text_area :request_description, class: request_description_class, placeholder: "Enter request description" %>
+    <!-- Input for request_description end -->
+    <% if request_description_was_invalid %>
+      <% request.errors.full_messages_for(:request_description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for request_description end -->
+  <!-- Label and input for status_id start -->
+  <div class="form-group">
+    <% status_class = "form-control" %>
+    <% status_was_invalid = request.errors.include?(:status) %>
+
+    <% if was_validated %>
+      <% if status_was_invalid %>
+        <% status_class << " is-invalid" %>
+      <% else %>
+        <% status_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :status_id %>
+    <!-- Input for status_id start -->
+    <%= f.number_field :status_id, class: status_class, placeholder: "Enter status" %>
+    <!-- Input for status_id end -->
+    <% if status_was_invalid %>
+      <% request.errors.full_messages_for(:status).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for status_id end -->
+  <!-- Label and input for approver_id start -->
+  <div class="form-group">
+    <% approver_class = "form-control" %>
+    <% approver_was_invalid = request.errors.include?(:approver) %>
+
+    <% if was_validated %>
+      <% if approver_was_invalid %>
+        <% approver_class << " is-invalid" %>
+      <% else %>
+        <% approver_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :approver_id %>
+    <!-- Input for approver_id start -->
+    <%= f.number_field :approver_id, class: approver_class, placeholder: "Enter approver" %>
+    <!-- Input for approver_id end -->
+    <% if approver_was_invalid %>
+      <% request.errors.full_messages_for(:approver).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for approver_id end -->
+  <!-- Label and input for requestor_id start -->
+  <div class="form-group">
+    <% requestor_class = "form-control" %>
+    <% requestor_was_invalid = request.errors.include?(:requestor) %>
+
+    <% if was_validated %>
+      <% if requestor_was_invalid %>
+        <% requestor_class << " is-invalid" %>
+      <% else %>
+        <% requestor_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :requestor_id %>
+    <!-- Input for requestor_id start -->
+    <%= f.number_field :requestor_id, class: requestor_class, placeholder: "Enter requestor" %>
+    <!-- Input for requestor_id end -->
+    <% if requestor_was_invalid %>
+      <% request.errors.full_messages_for(:requestor).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for requestor_id end -->
+  <!-- Label and input for exhibit_id start -->
+  <div class="form-group">
+    <% exhibit_class = "form-control" %>
+    <% exhibit_was_invalid = request.errors.include?(:exhibit) %>
+
+    <% if was_validated %>
+      <% if exhibit_was_invalid %>
+        <% exhibit_class << " is-invalid" %>
+      <% else %>
+        <% exhibit_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :exhibit_id %>
+    <!-- Input for exhibit_id start -->
+    <%= f.number_field :exhibit_id, class: exhibit_class, placeholder: "Enter exhibit" %>
+    <!-- Input for exhibit_id end -->
+    <% if exhibit_was_invalid %>
+      <% request.errors.full_messages_for(:exhibit).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for exhibit_id end -->
+  <!-- Label and input for attraction_id start -->
+  <div class="form-group">
+    <% attraction_class = "form-control" %>
+    <% attraction_was_invalid = request.errors.include?(:attraction) %>
+
+    <% if was_validated %>
+      <% if attraction_was_invalid %>
+        <% attraction_class << " is-invalid" %>
+      <% else %>
+        <% attraction_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :attraction_id %>
+    <!-- Input for attraction_id start -->
+    <%= f.number_field :attraction_id, class: attraction_class, placeholder: "Enter attraction" %>
+    <!-- Input for attraction_id end -->
+    <% if attraction_was_invalid %>
+      <% request.errors.full_messages_for(:attraction).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for attraction_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

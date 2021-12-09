@@ -11,6 +11,8 @@ class ExhibitResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :bookmarks
+
   has_many   :exhibit_comments
 
   belongs_to :attraction

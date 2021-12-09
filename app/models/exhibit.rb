@@ -1,6 +1,9 @@
 class Exhibit < ApplicationRecord
   # Direct associations
 
+  has_many   :requests,
+             :dependent => :destroy
+
   has_many   :recordings,
              :dependent => :destroy
 

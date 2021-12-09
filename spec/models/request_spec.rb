@@ -4,6 +4,8 @@ RSpec.describe Request, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:exhibit) }
+
     it { should belong_to(:attraction) }
 
     it { should belong_to(:approver) }

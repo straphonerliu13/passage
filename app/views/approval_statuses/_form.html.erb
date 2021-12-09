@@ -1,0 +1,31 @@
+<% was_validated = approval_status.errors.any? %>
+
+<%= form_with(model: approval_status, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for status_name start -->
+  <div class="form-group">
+    <% status_name_class = "form-control" %>
+    <% status_name_was_invalid = approval_status.errors.include?(:status_name) %>
+
+    <% if was_validated %>
+      <% if status_name_was_invalid %>
+        <% status_name_class << " is-invalid" %>
+      <% else %>
+        <% status_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :status_name %>
+    <!-- Input for status_name start -->
+    <%= f.number_field :status_name, class: status_name_class, placeholder: "Enter status name" %>
+    <!-- Input for status_name end -->
+    <% if status_name_was_invalid %>
+      <% approval_status.errors.full_messages_for(:status_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for status_name end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

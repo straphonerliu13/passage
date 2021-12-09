@@ -1,5 +1,7 @@
 ActiveAdmin.register Recording do
 
+ permit_params :exhibit_id, :audio_upload, :video_upload
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

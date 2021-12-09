@@ -1,6 +1,9 @@
 class Exhibit < ApplicationRecord
   # Direct associations
 
+  has_many   :bookmarks,
+             :dependent => :destroy
+
   has_many   :exhibit_comments,
              :dependent => :destroy
 

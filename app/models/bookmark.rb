@@ -1,6 +1,8 @@
 class Bookmark < ApplicationRecord
   # Direct associations
 
+  belongs_to :exhibit
+
   belongs_to :attraction
 
   belongs_to :user

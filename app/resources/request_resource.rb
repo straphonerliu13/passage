@@ -12,6 +12,8 @@ class RequestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :attraction
+
   belongs_to :approver,
              resource: UserResource
 

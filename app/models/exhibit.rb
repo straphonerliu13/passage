@@ -17,6 +17,10 @@ class Exhibit < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :bookmarks,
+             :source => :user
+
   has_one    :modification_request,
              :through => :attraction,
              :source => :modification_requests

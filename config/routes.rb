@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exhibits
   resources :recordings
   resources :attraction_comments
   resources :attractions

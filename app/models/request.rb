@@ -1,6 +1,9 @@
 class Request < ApplicationRecord
   # Direct associations
 
+  belongs_to :approver,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations

@@ -13,7 +13,7 @@ class Api::V1::UserTypesController < Api::V1::GraphitiController
     user_type = UserTypeResource.build(params)
 
     if user_type.save
-      render jsonapi: user_type, status: 201
+      render jsonapi: user_type, status: :created
     else
       render jsonapi_errors: user_type
     end
@@ -33,7 +33,7 @@ class Api::V1::UserTypesController < Api::V1::GraphitiController
     user_type = UserTypeResource.find(params)
 
     if user_type.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: user_type
     end

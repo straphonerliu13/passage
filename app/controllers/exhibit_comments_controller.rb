@@ -1,15 +1,15 @@
 class ExhibitCommentsController < ApplicationController
-  before_action :set_exhibit_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_exhibit_comment, only: %i[show edit update destroy]
 
   # GET /exhibit_comments
   def index
     @q = ExhibitComment.ransack(params[:q])
-    @exhibit_comments = @q.result(:distinct => true).includes(:commenter, :exhibit).page(params[:page]).per(10)
+    @exhibit_comments = @q.result(distinct: true).includes(:commenter,
+                                                           :exhibit).page(params[:page]).per(10)
   end
 
   # GET /exhibit_comments/1
-  def show
-  end
+  def show; end
 
   # GET /exhibit_comments/new
   def new
@@ -17,17 +17,16 @@ class ExhibitCommentsController < ApplicationController
   end
 
   # GET /exhibit_comments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /exhibit_comments
   def create
     @exhibit_comment = ExhibitComment.new(exhibit_comment_params)
 
     if @exhibit_comment.save
-      message = 'ExhibitComment was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "ExhibitComment was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @exhibit_comment, notice: message
       end
@@ -39,7 +38,8 @@ class ExhibitCommentsController < ApplicationController
   # PATCH/PUT /exhibit_comments/1
   def update
     if @exhibit_comment.update(exhibit_comment_params)
-      redirect_to @exhibit_comment, notice: 'Exhibit comment was successfully updated.'
+      redirect_to @exhibit_comment,
+                  notice: "Exhibit comment was successfully updated."
     else
       render :edit
     end
@@ -49,22 +49,23 @@ class ExhibitCommentsController < ApplicationController
   def destroy
     @exhibit_comment.destroy
     message = "ExhibitComment was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to exhibit_comments_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_exhibit_comment
-      @exhibit_comment = ExhibitComment.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def exhibit_comment_params
-      params.require(:exhibit_comment).permit(:commenter_id, :exhibit_id, :comment_text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_exhibit_comment
+    @exhibit_comment = ExhibitComment.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def exhibit_comment_params
+    params.require(:exhibit_comment).permit(:commenter_id, :exhibit_id,
+                                            :comment_text)
+  end
 end

@@ -1,6 +1,6 @@
 ActiveAdmin.register Exhibit do
-
- permit_params :exhibit_name, :attraction_id, :exhibit_description, :exhibit_image, :exhibit_location, :status_id
+  permit_params :exhibit_name, :attraction_id, :exhibit_description,
+                :exhibit_image, :exhibit_location, :status_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register Exhibit do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

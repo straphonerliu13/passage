@@ -10,5 +10,4 @@ class ApprovalStatusResource < ApplicationResource
              foreign_key: :status_id
 
   # Indirect associations
-
 end

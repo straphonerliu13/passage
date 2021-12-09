@@ -2,8 +2,8 @@ class VisitorDemographic < ApplicationRecord
   # Direct associations
 
   has_many   :users,
-             :foreign_key => "demographic_id",
-             :dependent => :destroy
+             foreign_key: "demographic_id",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -14,5 +14,4 @@ class VisitorDemographic < ApplicationRecord
   def to_s
     demographic_name
   end
-
 end

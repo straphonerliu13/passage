@@ -1,1 +1,2 @@
-json.partial! "attraction_comments/attraction_comment", attraction_comment: @attraction_comment
+json.partial! "attraction_comments/attraction_comment",
+              attraction_comment: @attraction_comment

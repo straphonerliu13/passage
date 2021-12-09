@@ -1,10 +1,10 @@
 class UserType < ApplicationRecord
-  enum user_type: {"traveler_admin_partner"=>0} 
+  enum user_type: { "traveler_admin_partner" => 0 }
 
   # Direct associations
 
   has_many   :users,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class UserType < ApplicationRecord
   def to_s
     user_type
   end
-
 end

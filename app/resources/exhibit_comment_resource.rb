@@ -14,5 +14,4 @@ class ExhibitCommentResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

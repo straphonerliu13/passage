@@ -13,7 +13,7 @@ class Api::V1::VisitorDemographicsController < Api::V1::GraphitiController
     visitor_demographic = VisitorDemographicResource.build(params)
 
     if visitor_demographic.save
-      render jsonapi: visitor_demographic, status: 201
+      render jsonapi: visitor_demographic, status: :created
     else
       render jsonapi_errors: visitor_demographic
     end
@@ -33,7 +33,7 @@ class Api::V1::VisitorDemographicsController < Api::V1::GraphitiController
     visitor_demographic = VisitorDemographicResource.find(params)
 
     if visitor_demographic.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: visitor_demographic
     end

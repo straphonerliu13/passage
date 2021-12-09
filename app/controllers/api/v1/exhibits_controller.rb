@@ -13,7 +13,7 @@ class Api::V1::ExhibitsController < Api::V1::GraphitiController
     exhibit = ExhibitResource.build(params)
 
     if exhibit.save
-      render jsonapi: exhibit, status: 201
+      render jsonapi: exhibit, status: :created
     else
       render jsonapi_errors: exhibit
     end
@@ -33,7 +33,7 @@ class Api::V1::ExhibitsController < Api::V1::GraphitiController
     exhibit = ExhibitResource.find(params)
 
     if exhibit.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: exhibit
     end

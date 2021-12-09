@@ -13,7 +13,7 @@ class Api::V1::AttractionCommentsController < Api::V1::GraphitiController
     attraction_comment = AttractionCommentResource.build(params)
 
     if attraction_comment.save
-      render jsonapi: attraction_comment, status: 201
+      render jsonapi: attraction_comment, status: :created
     else
       render jsonapi_errors: attraction_comment
     end
@@ -33,7 +33,7 @@ class Api::V1::AttractionCommentsController < Api::V1::GraphitiController
     attraction_comment = AttractionCommentResource.find(params)
 
     if attraction_comment.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: attraction_comment
     end

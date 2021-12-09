@@ -13,7 +13,7 @@ class Api::V1::RecordingsController < Api::V1::GraphitiController
     recording = RecordingResource.build(params)
 
     if recording.save
-      render jsonapi: recording, status: 201
+      render jsonapi: recording, status: :created
     else
       render jsonapi_errors: recording
     end
@@ -33,7 +33,7 @@ class Api::V1::RecordingsController < Api::V1::GraphitiController
     recording = RecordingResource.find(params)
 
     if recording.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: recording
     end

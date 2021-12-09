@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Attraction, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:attraction_category) }
 
     it { should have_many(:requests) }
@@ -13,20 +11,16 @@ RSpec.describe Attraction, type: :model do
     it { should have_many(:exhibits) }
 
     it { should have_many(:attraction_comments) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:users) }
 
     it { should have_many(:recordings) }
 
     it { should have_many(:modification_requests) }
+  end
 
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

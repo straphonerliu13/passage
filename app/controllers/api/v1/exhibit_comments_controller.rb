@@ -13,7 +13,7 @@ class Api::V1::ExhibitCommentsController < Api::V1::GraphitiController
     exhibit_comment = ExhibitCommentResource.build(params)
 
     if exhibit_comment.save
-      render jsonapi: exhibit_comment, status: 201
+      render jsonapi: exhibit_comment, status: :created
     else
       render jsonapi_errors: exhibit_comment
     end
@@ -33,7 +33,7 @@ class Api::V1::ExhibitCommentsController < Api::V1::GraphitiController
     exhibit_comment = ExhibitCommentResource.find(params)
 
     if exhibit_comment.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: exhibit_comment
     end

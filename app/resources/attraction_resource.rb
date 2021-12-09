@@ -44,5 +44,4 @@ class AttractionResource < ApplicationResource
       end
     end
   end
-
 end

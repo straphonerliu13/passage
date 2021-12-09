@@ -14,5 +14,4 @@ class AttractionCommentResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

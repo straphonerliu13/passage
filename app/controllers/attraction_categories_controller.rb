@@ -1,10 +1,11 @@
 class AttractionCategoriesController < ApplicationController
-  before_action :set_attraction_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_attraction_category,
+                only: %i[show edit update destroy]
 
   # GET /attraction_categories
   def index
     @q = AttractionCategory.ransack(params[:q])
-    @attraction_categories = @q.result(:distinct => true).includes(:attractions).page(params[:page]).per(10)
+    @attraction_categories = @q.result(distinct: true).includes(:attractions).page(params[:page]).per(10)
   end
 
   # GET /attraction_categories/1
@@ -18,15 +19,15 @@ class AttractionCategoriesController < ApplicationController
   end
 
   # GET /attraction_categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /attraction_categories
   def create
     @attraction_category = AttractionCategory.new(attraction_category_params)
 
     if @attraction_category.save
-      redirect_to @attraction_category, notice: 'Attraction category was successfully created.'
+      redirect_to @attraction_category,
+                  notice: "Attraction category was successfully created."
     else
       render :new
     end
@@ -35,7 +36,8 @@ class AttractionCategoriesController < ApplicationController
   # PATCH/PUT /attraction_categories/1
   def update
     if @attraction_category.update(attraction_category_params)
-      redirect_to @attraction_category, notice: 'Attraction category was successfully updated.'
+      redirect_to @attraction_category,
+                  notice: "Attraction category was successfully updated."
     else
       render :edit
     end
@@ -44,17 +46,20 @@ class AttractionCategoriesController < ApplicationController
   # DELETE /attraction_categories/1
   def destroy
     @attraction_category.destroy
-    redirect_to attraction_categories_url, notice: 'Attraction category was successfully destroyed.'
+    redirect_to attraction_categories_url,
+                notice: "Attraction category was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attraction_category
-      @attraction_category = AttractionCategory.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def attraction_category_params
-      params.require(:attraction_category).permit(:category_type, :category_description, :target_demographic)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attraction_category
+    @attraction_category = AttractionCategory.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def attraction_category_params
+    params.require(:attraction_category).permit(:category_type,
+                                                :category_description, :target_demographic)
+  end
 end

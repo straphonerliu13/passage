@@ -1,11 +1,12 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [:show, :edit, :update, :destroy]
+  before_action :set_attraction, only: %i[show edit update destroy]
 
   # GET /attractions
   def index
     @q = Attraction.ransack(params[:q])
-    @attractions = @q.result(:distinct => true).includes(:attraction_comments, :exhibits, :bookmarks, :requests, :attraction_category, :modification_requests, :recordings, :users).page(params[:page]).per(10)
-    @location_hash = Gmaps4rails.build_markers(@attractions.where.not(:attraction_location_latitude => nil)) do |attraction, marker|
+    @attractions = @q.result(distinct: true).includes(:attraction_comments,
+                                                      :exhibits, :bookmarks, :requests, :attraction_category, :modification_requests, :recordings, :users).page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@attractions.where.not(attraction_location_latitude: nil)) do |attraction, marker|
       marker.lat attraction.attraction_location_latitude
       marker.lng attraction.attraction_location_longitude
       marker.infowindow "<h5><a href='/attractions/#{attraction.id}'>#{attraction.attraction_name}</a></h5><small>#{attraction.attraction_location_formatted_address}</small>"
@@ -26,17 +27,16 @@ class AttractionsController < ApplicationController
   end
 
   # GET /attractions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /attractions
   def create
     @attraction = Attraction.new(attraction_params)
 
     if @attraction.save
-      message = 'Attraction was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Attraction was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @attraction, notice: message
       end
@@ -48,7 +48,7 @@ class AttractionsController < ApplicationController
   # PATCH/PUT /attractions/1
   def update
     if @attraction.update(attraction_params)
-      redirect_to @attraction, notice: 'Attraction was successfully updated.'
+      redirect_to @attraction, notice: "Attraction was successfully updated."
     else
       render :edit
     end
@@ -58,22 +58,23 @@ class AttractionsController < ApplicationController
   def destroy
     @attraction.destroy
     message = "Attraction was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to attractions_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attraction
-      @attraction = Attraction.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def attraction_params
-      params.require(:attraction).permit(:attraction_name, :attraction_location, :attraction_description, :attraction_image, :status_id, :phone_number, :email_address, :hours_of_operation, :cost_of_entry, :attraction_category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attraction
+    @attraction = Attraction.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def attraction_params
+    params.require(:attraction).permit(:attraction_name,
+                                       :attraction_location, :attraction_description, :attraction_image, :status_id, :phone_number, :email_address, :hours_of_operation, :cost_of_entry, :attraction_category_id)
+  end
 end

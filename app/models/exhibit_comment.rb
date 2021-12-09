@@ -4,7 +4,7 @@ class ExhibitComment < ApplicationRecord
   belongs_to :exhibit
 
   belongs_to :commenter,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class ExhibitComment < ApplicationRecord
   def to_s
     commenter.to_s
   end
-
 end

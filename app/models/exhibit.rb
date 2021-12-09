@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Exhibit < ApplicationRecord
   before_validation :geocode_exhibit_location
 
   def geocode_exhibit_location
-    if self.exhibit_location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.exhibit_location)}"
+    if exhibit_location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(exhibit_location)}"
 
       raw_data = open(url).read
 
@@ -24,28 +24,28 @@ class Exhibit < ApplicationRecord
   # Direct associations
 
   has_many   :requests,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :recordings,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :exhibit_comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :attraction
 
   # Indirect associations
 
   has_many   :users,
-             :through => :bookmarks,
-             :source => :user
+             through: :bookmarks,
+             source: :user
 
   has_one    :modification_request,
-             :through => :attraction,
-             :source => :modification_requests
+             through: :attraction,
+             source: :modification_requests
 
   # Validations
 
@@ -54,5 +54,4 @@ class Exhibit < ApplicationRecord
   def to_s
     exhibit_name
   end
-
 end

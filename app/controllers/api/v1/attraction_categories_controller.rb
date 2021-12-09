@@ -13,7 +13,7 @@ class Api::V1::AttractionCategoriesController < Api::V1::GraphitiController
     attraction_category = AttractionCategoryResource.build(params)
 
     if attraction_category.save
-      render jsonapi: attraction_category, status: 201
+      render jsonapi: attraction_category, status: :created
     else
       render jsonapi_errors: attraction_category
     end
@@ -33,7 +33,7 @@ class Api::V1::AttractionCategoriesController < Api::V1::GraphitiController
     attraction_category = AttractionCategoryResource.find(params)
 
     if attraction_category.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: attraction_category
     end

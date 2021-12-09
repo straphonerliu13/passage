@@ -37,5 +37,4 @@ class UserResource < ApplicationResource
   many_to_many :attractions
 
   many_to_many :exhibits
-
 end

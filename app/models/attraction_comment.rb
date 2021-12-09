@@ -4,7 +4,7 @@ class AttractionComment < ApplicationRecord
   belongs_to :attraction
 
   belongs_to :commenter,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class AttractionComment < ApplicationRecord
   def to_s
     commenter.to_s
   end
-
 end

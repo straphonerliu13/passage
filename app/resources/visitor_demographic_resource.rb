@@ -11,5 +11,4 @@ class VisitorDemographicResource < ApplicationResource
              foreign_key: :demographic_id
 
   # Indirect associations
-
 end

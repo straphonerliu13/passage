@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Attraction < ApplicationRecord
   before_validation :geocode_attraction_location
 
   def geocode_attraction_location
-    if self.attraction_location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.attraction_location)}"
+    if attraction_location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(attraction_location)}"
 
       raw_data = open(url).read
 
@@ -26,30 +26,30 @@ class Attraction < ApplicationRecord
   belongs_to :attraction_category
 
   has_many   :requests,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :exhibits,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :attraction_comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :users,
-             :through => :bookmarks,
-             :source => :user
+             through: :bookmarks,
+             source: :user
 
   has_many   :recordings,
-             :through => :exhibits,
-             :source => :recordings
+             through: :exhibits,
+             source: :recordings
 
   has_many   :modification_requests,
-             :through => :exhibits,
-             :source => :requests
+             through: :exhibits,
+             source: :requests
 
   # Validations
 
@@ -58,5 +58,4 @@ class Attraction < ApplicationRecord
   def to_s
     attraction_name
   end
-
 end

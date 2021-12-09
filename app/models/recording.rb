@@ -8,8 +8,8 @@ class Recording < ApplicationRecord
   # Indirect associations
 
   has_one    :attraction,
-             :through => :exhibit,
-             :source => :attraction
+             through: :exhibit,
+             source: :attraction
 
   # Validations
 
@@ -18,5 +18,4 @@ class Recording < ApplicationRecord
   def to_s
     created_at
   end
-
 end

@@ -31,7 +31,7 @@ class RequestResource < ApplicationResource
 
   filter :attraction_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:main_attraction).where(:exhibits => {:attraction_id => value})
+      scope.eager_load(:main_attraction).where(exhibits: { attraction_id: value })
     end
   end
 end

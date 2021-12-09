@@ -11,6 +11,8 @@ class ExhibitResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :attraction
+
   # Indirect associations
 
 end

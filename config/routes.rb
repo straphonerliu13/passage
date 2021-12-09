@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attraction_categories
   resources :user_types
   resources :bookmarks
   resources :exhibit_comments

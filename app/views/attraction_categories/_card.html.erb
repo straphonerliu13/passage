@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Attraction Category #<%= attraction_category.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Category type</dt>
+      <!-- Display category_type start -->
+      <dd><%= attraction_category.category_type %></dd>
+      <!-- Display category_type end -->
+
+      <dt>Category description</dt>
+      <!-- Display category_description start -->
+      <dd><%= attraction_category.category_description %></dd>
+      <!-- Display category_description end -->
+
+      <dt>Target demographic</dt>
+      <!-- Display target_demographic start -->
+      <dd><%= attraction_category.target_demographic %></dd>
+      <!-- Display target_demographic end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back attraction_category, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link attraction_category start -->
+      <div class="col">
+        <%= link_to edit_attraction_category_url(attraction_category), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link attraction_category end -->
+
+      <!-- Delete link attraction_category start -->
+      <div class="col">
+        <%= link_to attraction_category, method: :delete, data: { confirm: "Do you really want to delete this attraction_category?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link attraction_category end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(attraction_category.updated_at) %> ago
+  </div>
+</div>

@@ -16,6 +16,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :exhibit_comments,
+             foreign_key: :commenter_id
+
   has_many   :attraction_comments,
              foreign_key: :commenter_id
 

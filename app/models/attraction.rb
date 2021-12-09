@@ -1,6 +1,9 @@
 class Attraction < ApplicationRecord
   # Direct associations
 
+  has_many   :bookmarks,
+             :dependent => :destroy
+
   has_many   :exhibits,
              :dependent => :destroy
 

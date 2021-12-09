@@ -6,6 +6,9 @@ class ApprovalStatusResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :requests,
+             foreign_key: :status_id
+
   # Indirect associations
 
 end

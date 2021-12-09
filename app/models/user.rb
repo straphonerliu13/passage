@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :demographic,
+             :class_name => "VisitorDemographic"
+
   belongs_to :user_type
 
   has_many   :requests,

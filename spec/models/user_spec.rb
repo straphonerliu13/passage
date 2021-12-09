@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:demographic) }
+
     it { should belong_to(:user_type) }
 
     it { should have_many(:requests) }

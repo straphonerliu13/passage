@@ -7,6 +7,9 @@ class VisitorDemographicResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :users,
+             foreign_key: :demographic_id
+
   # Indirect associations
 
 end

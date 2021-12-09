@@ -16,6 +16,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :demographic,
+             resource: VisitorDemographicResource
+
   belongs_to :user_type
 
   has_many   :requests,

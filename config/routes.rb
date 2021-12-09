@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recordings
   resources :attraction_comments
   resources :attractions
   resources :users

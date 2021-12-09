@@ -18,6 +18,8 @@ RSpec.describe Exhibit, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:modification_request) }
+
     end
 
     describe "Validations" do

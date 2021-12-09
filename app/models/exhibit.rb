@@ -17,6 +17,10 @@ class Exhibit < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :modification_request,
+             :through => :attraction,
+             :source => :modification_requests
+
   # Validations
 
   # Scopes

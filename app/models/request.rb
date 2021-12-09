@@ -13,6 +13,10 @@ class Request < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :main_exhibit,
+             :through => :main_attraction,
+             :source => :exhibits
+
   # Validations
 
   # Scopes

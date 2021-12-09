@@ -42,7 +42,7 @@
 
     <%= f.label :attraction_id %>
     <!-- Input for attraction_id start -->
-    <%= f.number_field :attraction_id, class: attraction_class, placeholder: "Enter attraction" %>
+    <%= f.collection_select :attraction_id, Attraction.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for attraction_id end -->
     <% if attraction_was_invalid %>
       <% attraction_comment.errors.full_messages_for(:attraction).each do |message| %>

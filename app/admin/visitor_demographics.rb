@@ -1,5 +1,7 @@
 ActiveAdmin.register VisitorDemographic do
 
+ permit_params :demographic_name, :demographic_description
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

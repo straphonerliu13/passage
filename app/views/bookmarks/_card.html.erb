@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= bookmark.user_id %></dd>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <%= link_to bookmark.user, bookmark.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Exhibit</dt>
       <!-- Display exhibit_id start -->
-      <dd><%= bookmark.exhibit_id %></dd>
+      <dd>
+        <% if @bookmark.exhibit.present? %>
+          <%= link_to bookmark.exhibit, bookmark.exhibit %>
+        <% end %>
+      </dd>
       <!-- Display exhibit_id end -->
 
       <dt>Attraction</dt>
       <!-- Display attraction_id start -->
-      <dd><%= bookmark.attraction_id %></dd>
+      <dd>
+        <% if @bookmark.attraction.present? %>
+          <%= link_to bookmark.attraction, bookmark.attraction %>
+        <% end %>
+      </dd>
       <!-- Display attraction_id end -->
 
     </dl>

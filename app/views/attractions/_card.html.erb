@@ -58,7 +58,11 @@
 
       <dt>Attraction category</dt>
       <!-- Display attraction_category_id start -->
-      <dd><%= attraction.attraction_category_id %></dd>
+      <dd>
+        <% if @attraction.attraction_category.present? %>
+          <%= link_to attraction.attraction_category, attraction.attraction_category %>
+        <% end %>
+      </dd>
       <!-- Display attraction_category_id end -->
 
     </dl>

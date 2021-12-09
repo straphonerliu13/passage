@@ -54,12 +54,20 @@
 
       <dt>User type</dt>
       <!-- Display user_type_id start -->
-      <dd><%= user.user_type_id %></dd>
+      <dd>
+        <% if @user.user_type.present? %>
+          <%= link_to user.user_type, user.user_type %>
+        <% end %>
+      </dd>
       <!-- Display user_type_id end -->
 
       <dt>Demographic</dt>
       <!-- Display demographic_id start -->
-      <dd><%= user.demographic_id %></dd>
+      <dd>
+        <% if @user.demographic.present? %>
+          <%= link_to user.demographic, user.demographic %>
+        <% end %>
+      </dd>
       <!-- Display demographic_id end -->
 
     </dl>

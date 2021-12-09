@@ -12,7 +12,11 @@
 
       <dt>Attraction</dt>
       <!-- Display attraction_id start -->
-      <dd><%= exhibit.attraction_id %></dd>
+      <dd>
+        <% if @exhibit.attraction.present? %>
+          <%= link_to exhibit.attraction, exhibit.attraction %>
+        <% end %>
+      </dd>
       <!-- Display attraction_id end -->
 
       <dt>Exhibit description</dt>

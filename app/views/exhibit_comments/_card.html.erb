@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Commenter</dt>
       <!-- Display commenter_id start -->
-      <dd><%= exhibit_comment.commenter_id %></dd>
+      <dd>
+        <% if @exhibit_comment.commenter.present? %>
+          <%= link_to exhibit_comment.commenter, exhibit_comment.commenter %>
+        <% end %>
+      </dd>
       <!-- Display commenter_id end -->
 
       <dt>Exhibit</dt>
       <!-- Display exhibit_id start -->
-      <dd><%= exhibit_comment.exhibit_id %></dd>
+      <dd>
+        <% if @exhibit_comment.exhibit.present? %>
+          <%= link_to exhibit_comment.exhibit, exhibit_comment.exhibit %>
+        <% end %>
+      </dd>
       <!-- Display exhibit_id end -->
 
       <dt>Comment text</dt>

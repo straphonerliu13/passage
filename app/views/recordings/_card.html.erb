@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Exhibit</dt>
       <!-- Display exhibit_id start -->
-      <dd><%= recording.exhibit_id %></dd>
+      <dd>
+        <% if @recording.exhibit.present? %>
+          <%= link_to recording.exhibit, recording.exhibit %>
+        <% end %>
+      </dd>
       <!-- Display exhibit_id end -->
 
       <dt>Audio upload</dt>

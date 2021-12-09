@@ -17,12 +17,20 @@
 
       <dt>Status</dt>
       <!-- Display status_id start -->
-      <dd><%= request.status_id %></dd>
+      <dd>
+        <% if @request.status.present? %>
+          <%= link_to request.status, request.status %>
+        <% end %>
+      </dd>
       <!-- Display status_id end -->
 
       <dt>Approver</dt>
       <!-- Display approver_id start -->
-      <dd><%= request.approver_id %></dd>
+      <dd>
+        <% if @request.approver.present? %>
+          <%= link_to request.approver, request.approver %>
+        <% end %>
+      </dd>
       <!-- Display approver_id end -->
 
       <dt>Requestor</dt>
@@ -32,12 +40,20 @@
 
       <dt>Exhibit</dt>
       <!-- Display exhibit_id start -->
-      <dd><%= request.exhibit_id %></dd>
+      <dd>
+        <% if @request.exhibit.present? %>
+          <%= link_to request.exhibit, request.exhibit %>
+        <% end %>
+      </dd>
       <!-- Display exhibit_id end -->
 
       <dt>Attraction</dt>
       <!-- Display attraction_id start -->
-      <dd><%= request.attraction_id %></dd>
+      <dd>
+        <% if @request.attraction.present? %>
+          <%= link_to request.attraction, request.attraction %>
+        <% end %>
+      </dd>
       <!-- Display attraction_id end -->
 
     </dl>

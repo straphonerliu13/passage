@@ -15,6 +15,8 @@ class AttractionResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :attraction_comments
+
   # Indirect associations
 
 end

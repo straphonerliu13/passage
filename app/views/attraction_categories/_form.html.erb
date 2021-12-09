@@ -16,7 +16,7 @@
 
     <%= f.label :category_type %>
     <!-- Input for category_type start -->
-    <%= f.number_field :category_type, class: category_type_class, placeholder: "Enter category type" %>
+    <%= f.select :category_type, options_for_select(AttractionCategory.category_types.keys), {}, class: "form-control" %>
     <!-- Input for category_type end -->
     <% if category_type_was_invalid %>
       <% attraction_category.errors.full_messages_for(:category_type).each do |message| %>

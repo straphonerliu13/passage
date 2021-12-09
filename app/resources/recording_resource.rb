@@ -8,6 +8,8 @@ class RecordingResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :exhibit
+
   # Indirect associations
 
 end

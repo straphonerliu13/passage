@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :user_type
+
   has_many   :requests,
              :foreign_key => "approver_id",
              :dependent => :destroy

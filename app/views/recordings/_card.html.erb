@@ -6,25 +6,19 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Exhibit</dt>
-      <!-- Display exhibit_id start -->
       <dd>
         <% if @recording.exhibit.present? %>
           <%= link_to recording.exhibit, recording.exhibit %>
         <% end %>
       </dd>
-      <!-- Display exhibit_id end -->
 
       <dt>Audio upload</dt>
-      <!-- Display audio_upload start -->
       <dd>
         <%= cl_image_tag @recording.audio_upload, class: "img-fluid" %>
       </dd>
-      <!-- Display audio_upload end -->
 
       <dt>Video upload</dt>
-      <!-- Display video_upload start -->
       <dd><%= recording.video_upload %></dd>
-      <!-- Display video_upload end -->
 
     </dl>
 
@@ -33,21 +27,17 @@
         <%= link_to_show_or_back recording, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link recording start -->
       <div class="col">
         <%= link_to edit_recording_url(recording), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link recording end -->
 
-      <!-- Delete link recording start -->
       <div class="col">
         <%= link_to recording, method: :delete, data: { confirm: "Do you really want to delete this recording?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link recording end -->
     </div>
   </div>
 

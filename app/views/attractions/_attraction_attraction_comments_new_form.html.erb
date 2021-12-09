@@ -1,31 +1,17 @@
-<!-- Form attraction_comment start -->
 <%= form_with(model: @attraction_comment, local: true) do |f| %>
-<!-- Form attraction_comment end -->
 
-  <!-- Label and input for commenter_id start -->
   <div class="form-group">
     <%= f.label :commenter_id %>
 
-    <!-- Input for commenter_id start -->
     <%= f.collection_select :commenter_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for commenter_id end -->
   </div>
-  <!-- Label and input for commenter_id end -->
 
-  <!-- Label and input for attraction_id start -->
-  <!-- Input for attraction_id start -->
   <%= f.hidden_field :attraction_id, value: @attraction.id %>
-  <!-- Input for attraction_id end -->
-  <!-- Label and input for attraction_id end -->
 
-  <!-- Label and input for comment_text start -->
   <div class="form-group">
     <%= f.label :comment_text %>
-    <!-- Input for comment_text start -->
     <%= f.text_area :comment_text, rows: "3", class: "form-control" %>
-    <!-- Input for comment_text end -->
   </div>
-  <!-- Label and input for comment_text end -->
 
   <%= f.submit "Create attraction comment", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

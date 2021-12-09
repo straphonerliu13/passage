@@ -6,64 +6,44 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Attraction name</dt>
-      <!-- Display attraction_name start -->
       <dd><%= attraction.attraction_name %></dd>
-      <!-- Display attraction_name end -->
 
       <dt>Attraction location</dt>
-      <!-- Display attraction_location start -->
       <dd>
         <div>
           <%= render partial: "attractions/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display attraction_location end -->
 
       <dt>Attraction description</dt>
-      <!-- Display attraction_description start -->
       <dd><%= attraction.attraction_description %></dd>
-      <!-- Display attraction_description end -->
 
       <dt>Attraction image</dt>
-      <!-- Display attraction_image start -->
       <dd>
         <%= cl_image_tag @attraction.attraction_image, class: "img-fluid" %>
       </dd>
-      <!-- Display attraction_image end -->
 
       <dt>Status</dt>
-      <!-- Display status_id start -->
       <dd><%= attraction.status_id %></dd>
-      <!-- Display status_id end -->
 
       <dt>Phone number</dt>
-      <!-- Display phone_number start -->
       <dd><%= attraction.phone_number %></dd>
-      <!-- Display phone_number end -->
 
       <dt>Email address</dt>
-      <!-- Display email_address start -->
       <dd><%= attraction.email_address %></dd>
-      <!-- Display email_address end -->
 
       <dt>Hours of operation</dt>
-      <!-- Display hours_of_operation start -->
       <dd><%= attraction.hours_of_operation %></dd>
-      <!-- Display hours_of_operation end -->
 
       <dt>Cost of entry</dt>
-      <!-- Display cost_of_entry start -->
       <dd><%= attraction.cost_of_entry %></dd>
-      <!-- Display cost_of_entry end -->
 
       <dt>Attraction category</dt>
-      <!-- Display attraction_category_id start -->
       <dd>
         <% if @attraction.attraction_category.present? %>
           <%= link_to attraction.attraction_category, attraction.attraction_category %>
         <% end %>
       </dd>
-      <!-- Display attraction_category_id end -->
 
     </dl>
 
@@ -72,21 +52,17 @@
         <%= link_to_show_or_back attraction, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link attraction start -->
       <div class="col">
         <%= link_to edit_attraction_url(attraction), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link attraction end -->
 
-      <!-- Delete link attraction start -->
       <div class="col">
         <%= link_to attraction, method: :delete, data: { confirm: "Do you really want to delete this attraction?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link attraction end -->
     </div>
   </div>
 

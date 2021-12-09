@@ -1,7 +1,6 @@
 <% was_validated = exhibit.errors.any? %>
 
 <%= form_with(model: exhibit, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for exhibit_name start -->
   <div class="form-group">
     <% exhibit_name_class = "form-control" %>
     <% exhibit_name_was_invalid = exhibit.errors.include?(:exhibit_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :exhibit_name %>
-    <!-- Input for exhibit_name start -->
     <%= f.text_field :exhibit_name, class: exhibit_name_class, placeholder: "Enter exhibit name" %>
-    <!-- Input for exhibit_name end -->
     <% if exhibit_name_was_invalid %>
       <% exhibit.errors.full_messages_for(:exhibit_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for exhibit_name end -->
-  <!-- Label and input for attraction_id start -->
   <div class="form-group">
     <% attraction_class = "form-control" %>
     <% attraction_was_invalid = exhibit.errors.include?(:attraction) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :attraction_id %>
-    <!-- Input for attraction_id start -->
     <%= f.collection_select :attraction_id, Attraction.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for attraction_id end -->
     <% if attraction_was_invalid %>
       <% exhibit.errors.full_messages_for(:attraction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_id end -->
-  <!-- Label and input for exhibit_description start -->
   <div class="form-group">
     <% exhibit_description_class = "form-control" %>
     <% exhibit_description_was_invalid = exhibit.errors.include?(:exhibit_description) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :exhibit_description %>
-    <!-- Input for exhibit_description start -->
     <%= f.text_area :exhibit_description, class: exhibit_description_class, placeholder: "Enter exhibit description" %>
-    <!-- Input for exhibit_description end -->
     <% if exhibit_description_was_invalid %>
       <% exhibit.errors.full_messages_for(:exhibit_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for exhibit_description end -->
-  <!-- Label and input for exhibit_image start -->
   <div class="form-group">
     <% exhibit_image_class = "form-control" %>
     <% exhibit_image_was_invalid = exhibit.errors.include?(:exhibit_image) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :exhibit_image %>
-    <!-- Input for exhibit_image start -->
     <%= f.file_field :exhibit_image, class: "form-control" %>
-    <!-- Input for exhibit_image end -->
     <% if exhibit_image_was_invalid %>
       <% exhibit.errors.full_messages_for(:exhibit_image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for exhibit_image end -->
-  <!-- Label and input for exhibit_location start -->
   <div class="form-group">
     <% exhibit_location_class = "form-control" %>
     <% exhibit_location_was_invalid = exhibit.errors.include?(:exhibit_location) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :exhibit_location %>
-    <!-- Input for exhibit_location start -->
     <%= f.text_field :exhibit_location, class: exhibit_location_class, placeholder: "Enter exhibit location" %>
-    <!-- Input for exhibit_location end -->
     <% if exhibit_location_was_invalid %>
       <% exhibit.errors.full_messages_for(:exhibit_location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for exhibit_location end -->
-  <!-- Label and input for status_id start -->
   <div class="form-group">
     <% status_class = "form-control" %>
     <% status_was_invalid = exhibit.errors.include?(:status) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :status_id %>
-    <!-- Input for status_id start -->
     <%= f.number_field :status_id, class: status_class, placeholder: "Enter status" %>
-    <!-- Input for status_id end -->
     <% if status_was_invalid %>
       <% exhibit.errors.full_messages_for(:status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

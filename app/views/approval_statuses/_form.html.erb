@@ -1,7 +1,6 @@
 <% was_validated = approval_status.errors.any? %>
 
 <%= form_with(model: approval_status, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for status_name start -->
   <div class="form-group">
     <% status_name_class = "form-control" %>
     <% status_name_was_invalid = approval_status.errors.include?(:status_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :status_name %>
-    <!-- Input for status_name start -->
     <%= f.select :status_name, options_for_select(ApprovalStatus.status_names.keys), {}, class: "form-control" %>
-    <!-- Input for status_name end -->
     <% if status_name_was_invalid %>
       <% approval_status.errors.full_messages_for(:status_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status_name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

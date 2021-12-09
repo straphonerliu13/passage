@@ -1,7 +1,6 @@
 <% was_validated = user.errors.any? %>
 
 <%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for first_name start -->
   <div class="form-group">
     <% first_name_class = "form-control" %>
     <% first_name_was_invalid = user.errors.include?(:first_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :first_name %>
-    <!-- Input for first_name start -->
     <%= f.text_field :first_name, class: first_name_class, placeholder: "Enter first name" %>
-    <!-- Input for first_name end -->
     <% if first_name_was_invalid %>
       <% user.errors.full_messages_for(:first_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for first_name end -->
-  <!-- Label and input for last_name start -->
   <div class="form-group">
     <% last_name_class = "form-control" %>
     <% last_name_was_invalid = user.errors.include?(:last_name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :last_name %>
-    <!-- Input for last_name start -->
     <%= f.text_field :last_name, class: last_name_class, placeholder: "Enter last name" %>
-    <!-- Input for last_name end -->
     <% if last_name_was_invalid %>
       <% user.errors.full_messages_for(:last_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for last_name end -->
-  <!-- Label and input for email_address start -->
   <div class="form-group">
     <% email_address_class = "form-control" %>
     <% email_address_was_invalid = user.errors.include?(:email_address) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :email_address %>
-    <!-- Input for email_address start -->
     <%= f.text_field :email_address, class: email_address_class, placeholder: "Enter email address" %>
-    <!-- Input for email_address end -->
     <% if email_address_was_invalid %>
       <% user.errors.full_messages_for(:email_address).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for email_address end -->
-  <!-- Label and input for password start -->
   <div class="form-group">
     <% password_class = "form-control" %>
     <% password_was_invalid = user.errors.include?(:password) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :password %>
-    <!-- Input for password start -->
     <%= f.text_field :password, class: password_class, placeholder: "Enter password" %>
-    <!-- Input for password end -->
     <% if password_was_invalid %>
       <% user.errors.full_messages_for(:password).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for password end -->
-  <!-- Label and input for home_city start -->
   <div class="form-group">
     <% home_city_class = "form-control" %>
     <% home_city_was_invalid = user.errors.include?(:home_city) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :home_city %>
-    <!-- Input for home_city start -->
     <%= f.text_field :home_city, class: home_city_class, placeholder: "Enter home city" %>
-    <!-- Input for home_city end -->
     <% if home_city_was_invalid %>
       <% user.errors.full_messages_for(:home_city).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for home_city end -->
-  <!-- Label and input for home_state start -->
   <div class="form-group">
     <% home_state_class = "form-control" %>
     <% home_state_was_invalid = user.errors.include?(:home_state) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :home_state %>
-    <!-- Input for home_state start -->
     <%= f.text_field :home_state, class: home_state_class, placeholder: "Enter home state" %>
-    <!-- Input for home_state end -->
     <% if home_state_was_invalid %>
       <% user.errors.full_messages_for(:home_state).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for home_state end -->
-  <!-- Label and input for home_country start -->
   <div class="form-group">
     <% home_country_class = "form-control" %>
     <% home_country_was_invalid = user.errors.include?(:home_country) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :home_country %>
-    <!-- Input for home_country start -->
     <%= f.text_field :home_country, class: home_country_class, placeholder: "Enter home country" %>
-    <!-- Input for home_country end -->
     <% if home_country_was_invalid %>
       <% user.errors.full_messages_for(:home_country).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,8 +155,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for home_country end -->
-  <!-- Label and input for user_image start -->
   <div class="form-group">
     <% user_image_class = "form-control" %>
     <% user_image_was_invalid = user.errors.include?(:user_image) %>
@@ -197,9 +168,7 @@
     <% end %>
 
     <%= f.label :user_image %>
-    <!-- Input for user_image start -->
     <%= f.file_field :user_image, class: "form-control" %>
-    <!-- Input for user_image end -->
     <% if user_image_was_invalid %>
       <% user.errors.full_messages_for(:user_image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -208,8 +177,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_image end -->
-  <!-- Label and input for user_bio start -->
   <div class="form-group">
     <% user_bio_class = "form-control" %>
     <% user_bio_was_invalid = user.errors.include?(:user_bio) %>
@@ -223,9 +190,7 @@
     <% end %>
 
     <%= f.label :user_bio %>
-    <!-- Input for user_bio start -->
     <%= f.text_area :user_bio, class: user_bio_class, placeholder: "Enter user bio" %>
-    <!-- Input for user_bio end -->
     <% if user_bio_was_invalid %>
       <% user.errors.full_messages_for(:user_bio).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -234,8 +199,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_bio end -->
-  <!-- Label and input for user_type_id start -->
   <div class="form-group">
     <% user_type_class = "form-control" %>
     <% user_type_was_invalid = user.errors.include?(:user_type) %>
@@ -249,9 +212,7 @@
     <% end %>
 
     <%= f.label :user_type_id %>
-    <!-- Input for user_type_id start -->
     <%= f.collection_select :user_type_id, UserType.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_type_id end -->
     <% if user_type_was_invalid %>
       <% user.errors.full_messages_for(:user_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -260,8 +221,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_type_id end -->
-  <!-- Label and input for demographic_id start -->
   <div class="form-group">
     <% demographic_class = "form-control" %>
     <% demographic_was_invalid = user.errors.include?(:demographic) %>
@@ -275,9 +234,7 @@
     <% end %>
 
     <%= f.label :demographic_id %>
-    <!-- Input for demographic_id start -->
     <%= f.collection_select :demographic_id, VisitorDemographic.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for demographic_id end -->
     <% if demographic_was_invalid %>
       <% user.errors.full_messages_for(:demographic).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -286,6 +243,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for demographic_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

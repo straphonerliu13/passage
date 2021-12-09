@@ -1,7 +1,6 @@
 <% was_validated = attraction_comment.errors.any? %>
 
 <%= form_with(model: attraction_comment, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for commenter_id start -->
   <div class="form-group">
     <% commenter_class = "form-control" %>
     <% commenter_was_invalid = attraction_comment.errors.include?(:commenter) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :commenter_id %>
-    <!-- Input for commenter_id start -->
     <%= f.collection_select :commenter_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for commenter_id end -->
     <% if commenter_was_invalid %>
       <% attraction_comment.errors.full_messages_for(:commenter).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for commenter_id end -->
-  <!-- Label and input for attraction_id start -->
   <div class="form-group">
     <% attraction_class = "form-control" %>
     <% attraction_was_invalid = attraction_comment.errors.include?(:attraction) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :attraction_id %>
-    <!-- Input for attraction_id start -->
     <%= f.collection_select :attraction_id, Attraction.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for attraction_id end -->
     <% if attraction_was_invalid %>
       <% attraction_comment.errors.full_messages_for(:attraction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_id end -->
-  <!-- Label and input for comment_text start -->
   <div class="form-group">
     <% comment_text_class = "form-control" %>
     <% comment_text_was_invalid = attraction_comment.errors.include?(:comment_text) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :comment_text %>
-    <!-- Input for comment_text start -->
     <%= f.text_area :comment_text, class: comment_text_class, placeholder: "Enter comment text" %>
-    <!-- Input for comment_text end -->
     <% if comment_text_was_invalid %>
       <% attraction_comment.errors.full_messages_for(:comment_text).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for comment_text end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

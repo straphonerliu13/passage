@@ -6,9 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User type</dt>
-      <!-- Display user_type start -->
       <dd><%= user_type.user_type %></dd>
-      <!-- Display user_type end -->
 
     </dl>
 
@@ -17,21 +15,17 @@
         <%= link_to_show_or_back user_type, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link user_type start -->
       <div class="col">
         <%= link_to edit_user_type_url(user_type), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link user_type end -->
 
-      <!-- Delete link user_type start -->
       <div class="col">
         <%= link_to user_type, method: :delete, data: { confirm: "Do you really want to delete this user_type?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link user_type end -->
     </div>
   </div>
 

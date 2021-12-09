@@ -1,7 +1,6 @@
 <% was_validated = request.errors.any? %>
 
 <%= form_with(model: request, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for request_name start -->
   <div class="form-group">
     <% request_name_class = "form-control" %>
     <% request_name_was_invalid = request.errors.include?(:request_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :request_name %>
-    <!-- Input for request_name start -->
     <%= f.text_field :request_name, class: request_name_class, placeholder: "Enter request name" %>
-    <!-- Input for request_name end -->
     <% if request_name_was_invalid %>
       <% request.errors.full_messages_for(:request_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for request_name end -->
-  <!-- Label and input for request_description start -->
   <div class="form-group">
     <% request_description_class = "form-control" %>
     <% request_description_was_invalid = request.errors.include?(:request_description) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :request_description %>
-    <!-- Input for request_description start -->
     <%= f.text_area :request_description, class: request_description_class, placeholder: "Enter request description" %>
-    <!-- Input for request_description end -->
     <% if request_description_was_invalid %>
       <% request.errors.full_messages_for(:request_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for request_description end -->
-  <!-- Label and input for status_id start -->
   <div class="form-group">
     <% status_class = "form-control" %>
     <% status_was_invalid = request.errors.include?(:status) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :status_id %>
-    <!-- Input for status_id start -->
     <%= f.collection_select :status_id, ApprovalStatus.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for status_id end -->
     <% if status_was_invalid %>
       <% request.errors.full_messages_for(:status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status_id end -->
-  <!-- Label and input for approver_id start -->
   <div class="form-group">
     <% approver_class = "form-control" %>
     <% approver_was_invalid = request.errors.include?(:approver) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :approver_id %>
-    <!-- Input for approver_id start -->
     <%= f.collection_select :approver_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for approver_id end -->
     <% if approver_was_invalid %>
       <% request.errors.full_messages_for(:approver).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for approver_id end -->
-  <!-- Label and input for requestor_id start -->
   <div class="form-group">
     <% requestor_class = "form-control" %>
     <% requestor_was_invalid = request.errors.include?(:requestor) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :requestor_id %>
-    <!-- Input for requestor_id start -->
     <%= f.number_field :requestor_id, class: requestor_class, placeholder: "Enter requestor" %>
-    <!-- Input for requestor_id end -->
     <% if requestor_was_invalid %>
       <% request.errors.full_messages_for(:requestor).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for requestor_id end -->
-  <!-- Label and input for exhibit_id start -->
   <div class="form-group">
     <% exhibit_class = "form-control" %>
     <% exhibit_was_invalid = request.errors.include?(:exhibit) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :exhibit_id %>
-    <!-- Input for exhibit_id start -->
     <%= f.collection_select :exhibit_id, Exhibit.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for exhibit_id end -->
     <% if exhibit_was_invalid %>
       <% request.errors.full_messages_for(:exhibit).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for exhibit_id end -->
-  <!-- Label and input for attraction_id start -->
   <div class="form-group">
     <% attraction_class = "form-control" %>
     <% attraction_was_invalid = request.errors.include?(:attraction) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :attraction_id %>
-    <!-- Input for attraction_id start -->
     <%= f.collection_select :attraction_id, Attraction.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for attraction_id end -->
     <% if attraction_was_invalid %>
       <% request.errors.full_messages_for(:attraction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,6 +155,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

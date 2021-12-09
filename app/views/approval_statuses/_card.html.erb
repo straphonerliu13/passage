@@ -6,9 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Status name</dt>
-      <!-- Display status_name start -->
       <dd><%= approval_status.status_name %></dd>
-      <!-- Display status_name end -->
 
     </dl>
 
@@ -17,21 +15,17 @@
         <%= link_to_show_or_back approval_status, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link approval_status start -->
       <div class="col">
         <%= link_to edit_approval_status_url(approval_status), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link approval_status end -->
 
-      <!-- Delete link approval_status start -->
       <div class="col">
         <%= link_to approval_status, method: :delete, data: { confirm: "Do you really want to delete this approval_status?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link approval_status end -->
     </div>
   </div>
 

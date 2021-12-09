@@ -1,101 +1,59 @@
-<!-- Form attraction start -->
 <%= form_with(model: @attraction, local: true) do |f| %>
-<!-- Form attraction end -->
 
-  <!-- Label and input for attraction_name start -->
   <div class="form-group">
     <%= f.label :attraction_name %>
 
-    <!-- Input for attraction_name start -->
     <%= f.text_field :attraction_name, class: "form-control" %>
-    <!-- Input for attraction_name end -->
   </div>
-  <!-- Label and input for attraction_name end -->
 
-  <!-- Label and input for attraction_location start -->
   <div class="form-group">
     <%= f.label :attraction_location %>
 
-    <!-- Input for attraction_location start -->
     <%= f.text_field :attraction_location, class: "form-control" %>
-    <!-- Input for attraction_location end -->
   </div>
-  <!-- Label and input for attraction_location end -->
 
-  <!-- Label and input for attraction_description start -->
   <div class="form-group">
     <%= f.label :attraction_description %>
-    <!-- Input for attraction_description start -->
     <%= f.text_area :attraction_description, rows: "3", class: "form-control" %>
-    <!-- Input for attraction_description end -->
   </div>
-  <!-- Label and input for attraction_description end -->
 
-  <!-- Label and input for attraction_image start -->
   <div class="form-group">
     <%= f.label :attraction_image %>
 
-    <!-- Input for attraction_image start -->
     <%= f.file_field :attraction_image, class: "form-control" %>
-    <!-- Input for attraction_image end -->
   </div>
-  <!-- Label and input for attraction_image end -->
 
-  <!-- Label and input for status_id start -->
   <div class="form-group">
     <%= f.label :status_id %>
 
-    <!-- Input for status_id start -->
     <%= f.text_field :status_id, class: "form-control" %>
-    <!-- Input for status_id end -->
   </div>
-  <!-- Label and input for status_id end -->
 
-  <!-- Label and input for phone_number start -->
   <div class="form-group">
     <%= f.label :phone_number %>
 
-    <!-- Input for phone_number start -->
     <%= f.text_field :phone_number, class: "form-control" %>
-    <!-- Input for phone_number end -->
   </div>
-  <!-- Label and input for phone_number end -->
 
-  <!-- Label and input for email_address start -->
   <div class="form-group">
     <%= f.label :email_address %>
 
-    <!-- Input for email_address start -->
     <%= f.text_field :email_address, class: "form-control" %>
-    <!-- Input for email_address end -->
   </div>
-  <!-- Label and input for email_address end -->
 
-  <!-- Label and input for hours_of_operation start -->
   <div class="form-group">
     <%= f.label :hours_of_operation %>
 
-    <!-- Input for hours_of_operation start -->
     <%= f.text_field :hours_of_operation, class: "form-control" %>
-    <!-- Input for hours_of_operation end -->
   </div>
-  <!-- Label and input for hours_of_operation end -->
 
-  <!-- Label and input for cost_of_entry start -->
   <div class="form-group">
     <%= f.label :cost_of_entry %>
 
-    <!-- Input for cost_of_entry start -->
     <%= f.text_field :cost_of_entry, class: "form-control" %>
-    <!-- Input for cost_of_entry end -->
   </div>
-  <!-- Label and input for cost_of_entry end -->
 
-  <!-- Label and input for attraction_category_id start -->
-  <!-- Input for attraction_category_id start -->
   <%= f.hidden_field :attraction_category_id, value: @attraction_category.id %>
-  <!-- Input for attraction_category_id end -->
-  <!-- Label and input for attraction_category_id end -->
 
   <%= f.submit "Create attraction", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

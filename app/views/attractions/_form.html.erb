@@ -1,7 +1,6 @@
 <% was_validated = attraction.errors.any? %>
 
 <%= form_with(model: attraction, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for attraction_name start -->
   <div class="form-group">
     <% attraction_name_class = "form-control" %>
     <% attraction_name_was_invalid = attraction.errors.include?(:attraction_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :attraction_name %>
-    <!-- Input for attraction_name start -->
     <%= f.text_field :attraction_name, class: attraction_name_class, placeholder: "Enter attraction name" %>
-    <!-- Input for attraction_name end -->
     <% if attraction_name_was_invalid %>
       <% attraction.errors.full_messages_for(:attraction_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_name end -->
-  <!-- Label and input for attraction_location start -->
   <div class="form-group">
     <% attraction_location_class = "form-control" %>
     <% attraction_location_was_invalid = attraction.errors.include?(:attraction_location) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :attraction_location %>
-    <!-- Input for attraction_location start -->
     <%= f.text_field :attraction_location, class: attraction_location_class, placeholder: "Enter attraction location" %>
-    <!-- Input for attraction_location end -->
     <% if attraction_location_was_invalid %>
       <% attraction.errors.full_messages_for(:attraction_location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_location end -->
-  <!-- Label and input for attraction_description start -->
   <div class="form-group">
     <% attraction_description_class = "form-control" %>
     <% attraction_description_was_invalid = attraction.errors.include?(:attraction_description) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :attraction_description %>
-    <!-- Input for attraction_description start -->
     <%= f.text_area :attraction_description, class: attraction_description_class, placeholder: "Enter attraction description" %>
-    <!-- Input for attraction_description end -->
     <% if attraction_description_was_invalid %>
       <% attraction.errors.full_messages_for(:attraction_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_description end -->
-  <!-- Label and input for attraction_image start -->
   <div class="form-group">
     <% attraction_image_class = "form-control" %>
     <% attraction_image_was_invalid = attraction.errors.include?(:attraction_image) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :attraction_image %>
-    <!-- Input for attraction_image start -->
     <%= f.file_field :attraction_image, class: "form-control" %>
-    <!-- Input for attraction_image end -->
     <% if attraction_image_was_invalid %>
       <% attraction.errors.full_messages_for(:attraction_image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_image end -->
-  <!-- Label and input for status_id start -->
   <div class="form-group">
     <% status_class = "form-control" %>
     <% status_was_invalid = attraction.errors.include?(:status) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :status_id %>
-    <!-- Input for status_id start -->
     <%= f.number_field :status_id, class: status_class, placeholder: "Enter status" %>
-    <!-- Input for status_id end -->
     <% if status_was_invalid %>
       <% attraction.errors.full_messages_for(:status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status_id end -->
-  <!-- Label and input for phone_number start -->
   <div class="form-group">
     <% phone_number_class = "form-control" %>
     <% phone_number_was_invalid = attraction.errors.include?(:phone_number) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :phone_number %>
-    <!-- Input for phone_number start -->
     <%= f.text_field :phone_number, class: phone_number_class, placeholder: "Enter phone number" %>
-    <!-- Input for phone_number end -->
     <% if phone_number_was_invalid %>
       <% attraction.errors.full_messages_for(:phone_number).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for phone_number end -->
-  <!-- Label and input for email_address start -->
   <div class="form-group">
     <% email_address_class = "form-control" %>
     <% email_address_was_invalid = attraction.errors.include?(:email_address) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :email_address %>
-    <!-- Input for email_address start -->
     <%= f.text_field :email_address, class: email_address_class, placeholder: "Enter email address" %>
-    <!-- Input for email_address end -->
     <% if email_address_was_invalid %>
       <% attraction.errors.full_messages_for(:email_address).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,8 +155,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for email_address end -->
-  <!-- Label and input for hours_of_operation start -->
   <div class="form-group">
     <% hours_of_operation_class = "form-control" %>
     <% hours_of_operation_was_invalid = attraction.errors.include?(:hours_of_operation) %>
@@ -197,9 +168,7 @@
     <% end %>
 
     <%= f.label :hours_of_operation %>
-    <!-- Input for hours_of_operation start -->
     <%= f.text_field :hours_of_operation, class: hours_of_operation_class, placeholder: "Enter hours of operation" %>
-    <!-- Input for hours_of_operation end -->
     <% if hours_of_operation_was_invalid %>
       <% attraction.errors.full_messages_for(:hours_of_operation).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -208,8 +177,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for hours_of_operation end -->
-  <!-- Label and input for cost_of_entry start -->
   <div class="form-group">
     <% cost_of_entry_class = "form-control" %>
     <% cost_of_entry_was_invalid = attraction.errors.include?(:cost_of_entry) %>
@@ -223,9 +190,7 @@
     <% end %>
 
     <%= f.label :cost_of_entry %>
-    <!-- Input for cost_of_entry start -->
     <%= f.text_field :cost_of_entry, class: cost_of_entry_class, placeholder: "Enter cost of entry" %>
-    <!-- Input for cost_of_entry end -->
     <% if cost_of_entry_was_invalid %>
       <% attraction.errors.full_messages_for(:cost_of_entry).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -234,8 +199,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cost_of_entry end -->
-  <!-- Label and input for attraction_category_id start -->
   <div class="form-group">
     <% attraction_category_class = "form-control" %>
     <% attraction_category_was_invalid = attraction.errors.include?(:attraction_category) %>
@@ -249,9 +212,7 @@
     <% end %>
 
     <%= f.label :attraction_category_id %>
-    <!-- Input for attraction_category_id start -->
     <%= f.collection_select :attraction_category_id, AttractionCategory.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for attraction_category_id end -->
     <% if attraction_category_was_invalid %>
       <% attraction.errors.full_messages_for(:attraction_category).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -260,6 +221,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_category_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

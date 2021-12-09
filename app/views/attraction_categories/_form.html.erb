@@ -1,7 +1,6 @@
 <% was_validated = attraction_category.errors.any? %>
 
 <%= form_with(model: attraction_category, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for category_type start -->
   <div class="form-group">
     <% category_type_class = "form-control" %>
     <% category_type_was_invalid = attraction_category.errors.include?(:category_type) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :category_type %>
-    <!-- Input for category_type start -->
     <%= f.select :category_type, options_for_select(AttractionCategory.category_types.keys), {}, class: "form-control" %>
-    <!-- Input for category_type end -->
     <% if category_type_was_invalid %>
       <% attraction_category.errors.full_messages_for(:category_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_type end -->
-  <!-- Label and input for category_description start -->
   <div class="form-group">
     <% category_description_class = "form-control" %>
     <% category_description_was_invalid = attraction_category.errors.include?(:category_description) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :category_description %>
-    <!-- Input for category_description start -->
     <%= f.select :category_description, options_for_select(AttractionCategory.category_descriptions.keys), {}, class: "form-control" %>
-    <!-- Input for category_description end -->
     <% if category_description_was_invalid %>
       <% attraction_category.errors.full_messages_for(:category_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_description end -->
-  <!-- Label and input for target_demographic start -->
   <div class="form-group">
     <% target_demographic_class = "form-control" %>
     <% target_demographic_was_invalid = attraction_category.errors.include?(:target_demographic) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :target_demographic %>
-    <!-- Input for target_demographic start -->
     <%= f.text_field :target_demographic, class: target_demographic_class, placeholder: "Enter target demographic" %>
-    <!-- Input for target_demographic end -->
     <% if target_demographic_was_invalid %>
       <% attraction_category.errors.full_messages_for(:target_demographic).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for target_demographic end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

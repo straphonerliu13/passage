@@ -1,32 +1,18 @@
-<!-- Form recording start -->
 <%= form_with(model: @recording, local: true) do |f| %>
-<!-- Form recording end -->
 
-  <!-- Label and input for exhibit_id start -->
-  <!-- Input for exhibit_id start -->
   <%= f.hidden_field :exhibit_id, value: @exhibit.id %>
-  <!-- Input for exhibit_id end -->
-  <!-- Label and input for exhibit_id end -->
 
-  <!-- Label and input for audio_upload start -->
   <div class="form-group">
     <%= f.label :audio_upload %>
 
-    <!-- Input for audio_upload start -->
     <%= f.file_field :audio_upload, class: "form-control" %>
-    <!-- Input for audio_upload end -->
   </div>
-  <!-- Label and input for audio_upload end -->
 
-  <!-- Label and input for video_upload start -->
   <div class="form-group">
     <%= f.label :video_upload %>
 
-    <!-- Input for video_upload start -->
     <%= f.text_field :video_upload, class: "form-control" %>
-    <!-- Input for video_upload end -->
   </div>
-  <!-- Label and input for video_upload end -->
 
   <%= f.submit "Create recording", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

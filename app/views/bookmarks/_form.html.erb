@@ -1,7 +1,6 @@
 <% was_validated = bookmark.errors.any? %>
 
 <%= form_with(model: bookmark, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = bookmark.errors.include?(:user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% bookmark.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for exhibit_id start -->
   <div class="form-group">
     <% exhibit_class = "form-control" %>
     <% exhibit_was_invalid = bookmark.errors.include?(:exhibit) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :exhibit_id %>
-    <!-- Input for exhibit_id start -->
     <%= f.collection_select :exhibit_id, Exhibit.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for exhibit_id end -->
     <% if exhibit_was_invalid %>
       <% bookmark.errors.full_messages_for(:exhibit).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for exhibit_id end -->
-  <!-- Label and input for attraction_id start -->
   <div class="form-group">
     <% attraction_class = "form-control" %>
     <% attraction_was_invalid = bookmark.errors.include?(:attraction) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :attraction_id %>
-    <!-- Input for attraction_id start -->
     <%= f.collection_select :attraction_id, Attraction.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for attraction_id end -->
     <% if attraction_was_invalid %>
       <% bookmark.errors.full_messages_for(:attraction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attraction_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

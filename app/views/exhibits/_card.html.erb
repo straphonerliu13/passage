@@ -6,44 +6,32 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Exhibit name</dt>
-      <!-- Display exhibit_name start -->
       <dd><%= exhibit.exhibit_name %></dd>
-      <!-- Display exhibit_name end -->
 
       <dt>Attraction</dt>
-      <!-- Display attraction_id start -->
       <dd>
         <% if @exhibit.attraction.present? %>
           <%= link_to exhibit.attraction, exhibit.attraction %>
         <% end %>
       </dd>
-      <!-- Display attraction_id end -->
 
       <dt>Exhibit description</dt>
-      <!-- Display exhibit_description start -->
       <dd><%= exhibit.exhibit_description %></dd>
-      <!-- Display exhibit_description end -->
 
       <dt>Exhibit image</dt>
-      <!-- Display exhibit_image start -->
       <dd>
         <%= cl_image_tag @exhibit.exhibit_image, class: "img-fluid" %>
       </dd>
-      <!-- Display exhibit_image end -->
 
       <dt>Exhibit location</dt>
-      <!-- Display exhibit_location start -->
       <dd>
         <div>
           <%= render partial: "exhibits/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display exhibit_location end -->
 
       <dt>Status</dt>
-      <!-- Display status_id start -->
       <dd><%= exhibit.status_id %></dd>
-      <!-- Display status_id end -->
 
     </dl>
 
@@ -52,21 +40,17 @@
         <%= link_to_show_or_back exhibit, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link exhibit start -->
       <div class="col">
         <%= link_to edit_exhibit_url(exhibit), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link exhibit end -->
 
-      <!-- Delete link exhibit start -->
       <div class="col">
         <%= link_to exhibit, method: :delete, data: { confirm: "Do you really want to delete this exhibit?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link exhibit end -->
     </div>
   </div>
 

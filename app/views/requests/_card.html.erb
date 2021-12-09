@@ -6,55 +6,41 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Request name</dt>
-      <!-- Display request_name start -->
       <dd><%= request.request_name %></dd>
-      <!-- Display request_name end -->
 
       <dt>Request description</dt>
-      <!-- Display request_description start -->
       <dd><%= request.request_description %></dd>
-      <!-- Display request_description end -->
 
       <dt>Status</dt>
-      <!-- Display status_id start -->
       <dd>
         <% if @request.status.present? %>
           <%= link_to request.status, request.status %>
         <% end %>
       </dd>
-      <!-- Display status_id end -->
 
       <dt>Approver</dt>
-      <!-- Display approver_id start -->
       <dd>
         <% if @request.approver.present? %>
           <%= link_to request.approver, request.approver %>
         <% end %>
       </dd>
-      <!-- Display approver_id end -->
 
       <dt>Requestor</dt>
-      <!-- Display requestor_id start -->
       <dd><%= request.requestor_id %></dd>
-      <!-- Display requestor_id end -->
 
       <dt>Exhibit</dt>
-      <!-- Display exhibit_id start -->
       <dd>
         <% if @request.exhibit.present? %>
           <%= link_to request.exhibit, request.exhibit %>
         <% end %>
       </dd>
-      <!-- Display exhibit_id end -->
 
       <dt>Attraction</dt>
-      <!-- Display attraction_id start -->
       <dd>
         <% if @request.attraction.present? %>
           <%= link_to request.attraction, request.attraction %>
         <% end %>
       </dd>
-      <!-- Display attraction_id end -->
 
     </dl>
 
@@ -63,21 +49,17 @@
         <%= link_to_show_or_back request, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link request start -->
       <div class="col">
         <%= link_to edit_request_url(request), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link request end -->
 
-      <!-- Delete link request start -->
       <div class="col">
         <%= link_to request, method: :delete, data: { confirm: "Do you really want to delete this request?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link request end -->
     </div>
   </div>
 

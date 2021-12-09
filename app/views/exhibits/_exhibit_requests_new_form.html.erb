@@ -62,7 +62,7 @@
     <%= f.label :attraction_id %>
 
     <!-- Input for attraction_id start -->
-    <%= f.text_field :attraction_id, class: "form-control" %>
+    <%= f.collection_select :attraction_id, Attraction.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for attraction_id end -->
   </div>
   <!-- Label and input for attraction_id end -->

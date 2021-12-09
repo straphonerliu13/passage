@@ -23,6 +23,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :attractions,
+             :through => :bookmarks,
+             :source => :attraction
+
   has_many   :exhibits,
              :through => :bookmarks,
              :source => :exhibit

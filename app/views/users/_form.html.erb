@@ -250,7 +250,7 @@
 
     <%= f.label :user_type_id %>
     <!-- Input for user_type_id start -->
-    <%= f.number_field :user_type_id, class: user_type_class, placeholder: "Enter user type" %>
+    <%= f.collection_select :user_type_id, UserType.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for user_type_id end -->
     <% if user_type_was_invalid %>
       <% user.errors.full_messages_for(:user_type).each do |message| %>

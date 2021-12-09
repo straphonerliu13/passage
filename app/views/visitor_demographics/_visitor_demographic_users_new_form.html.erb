@@ -96,7 +96,7 @@
     <%= f.label :user_type_id %>
 
     <!-- Input for user_type_id start -->
-    <%= f.text_field :user_type_id, class: "form-control" %>
+    <%= f.collection_select :user_type_id, UserType.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for user_type_id end -->
   </div>
   <!-- Label and input for user_type_id end -->

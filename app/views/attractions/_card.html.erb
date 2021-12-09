@@ -12,7 +12,11 @@
 
       <dt>Attraction location</dt>
       <!-- Display attraction_location start -->
-      <dd><%= attraction.attraction_location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "attractions/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display attraction_location end -->
 
       <dt>Attraction description</dt>

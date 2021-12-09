@@ -29,7 +29,11 @@
 
       <dt>Exhibit location</dt>
       <!-- Display exhibit_location start -->
-      <dd><%= exhibit.exhibit_location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "exhibits/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display exhibit_location end -->
 
       <dt>Status</dt>

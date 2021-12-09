@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "users#index"
   resources :requests
   resources :approval_statuses
   resources :visitor_demographics

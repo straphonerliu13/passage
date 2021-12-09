@@ -1,0 +1,109 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "users_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :first_name_cont, "First name contains" %>
+    <%= f.text_field :first_name_cont, :class => "form-control", :placeholder => "First name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_bio_cont, "User bio contains" %>
+    <%= f.text_field :user_bio_cont, :class => "form-control", :placeholder => "User bio contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :home_country_cont, "Home country contains" %>
+    <%= f.text_field :home_country_cont, :class => "form-control", :placeholder => "Home country contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :home_state_cont, "Home state contains" %>
+    <%= f.text_field :home_state_cont, :class => "form-control", :placeholder => "Home state contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :home_city_cont, "Home city contains" %>
+    <%= f.text_field :home_city_cont, :class => "form-control", :placeholder => "Home city contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email_address_cont, "Email address contains" %>
+    <%= f.text_field :email_address_cont, :class => "form-control", :placeholder => "Email address contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name_cont, "Last name contains" %>
+    <%= f.text_field :last_name_cont, :class => "form-control", :placeholder => "Last name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :requests_request_name_cont, "Requests request_name contains" %>
+    <%= f.text_field :requests_request_name_cont, :class => "form-control", :placeholder => "Requests request_name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :demographic_demographic_name_cont, "Demographic demographic_name contains" %>
+    <%= f.text_field :demographic_demographic_name_cont, :class => "form-control", :placeholder => "Demographic demographic_name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :exhibits_exhibit_name_cont, "Exhibits exhibit_name contains" %>
+    <%= f.text_field :exhibits_exhibit_name_cont, :class => "form-control", :placeholder => "Exhibits exhibit_name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :attractions_attraction_name_cont, "Attractions attraction_name contains" %>
+    <%= f.text_field :attractions_attraction_name_cont, :class => "form-control", :placeholder => "Attractions attraction_name contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/users" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#users_filters">
+  Show filters
+</a>

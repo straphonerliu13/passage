@@ -3,7 +3,8 @@ class AttractionCategoriesController < ApplicationController
 
   # GET /attraction_categories
   def index
-    @attraction_categories = AttractionCategory.page(params[:page]).per(10)
+    @q = AttractionCategory.ransack(params[:q])
+    @attraction_categories = @q.result(:distinct => true).includes(:attractions).page(params[:page]).per(10)
   end
 
   # GET /attraction_categories/1

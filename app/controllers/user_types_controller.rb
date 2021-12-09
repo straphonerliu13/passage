@@ -3,7 +3,8 @@ class UserTypesController < ApplicationController
 
   # GET /user_types
   def index
-    @user_types = UserType.page(params[:page]).per(10)
+    @q = UserType.ransack(params[:q])
+    @user_types = @q.result(:distinct => true).includes(:users).page(params[:page]).per(10)
   end
 
   # GET /user_types/1

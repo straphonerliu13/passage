@@ -3,7 +3,8 @@ class RecordingsController < ApplicationController
 
   # GET /recordings
   def index
-    @recordings = Recording.page(params[:page]).per(10)
+    @q = Recording.ransack(params[:q])
+    @recordings = @q.result(:distinct => true).includes(:exhibit, :attraction).page(params[:page]).per(10)
   end
 
   # GET /recordings/1

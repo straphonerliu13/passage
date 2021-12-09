@@ -3,7 +3,8 @@ class VisitorDemographicsController < ApplicationController
 
   # GET /visitor_demographics
   def index
-    @visitor_demographics = VisitorDemographic.page(params[:page]).per(10)
+    @q = VisitorDemographic.ransack(params[:q])
+    @visitor_demographics = @q.result(:distinct => true).includes(:users).page(params[:page]).per(10)
   end
 
   # GET /visitor_demographics/1

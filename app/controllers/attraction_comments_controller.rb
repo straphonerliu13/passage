@@ -3,7 +3,8 @@ class AttractionCommentsController < ApplicationController
 
   # GET /attraction_comments
   def index
-    @attraction_comments = AttractionComment.page(params[:page]).per(10)
+    @q = AttractionComment.ransack(params[:q])
+    @attraction_comments = @q.result(:distinct => true).includes(:commenter, :attraction).page(params[:page]).per(10)
   end
 
   # GET /attraction_comments/1

@@ -3,7 +3,8 @@ class ApprovalStatusesController < ApplicationController
 
   # GET /approval_statuses
   def index
-    @approval_statuses = ApprovalStatus.page(params[:page]).per(10)
+    @q = ApprovalStatus.ransack(params[:q])
+    @approval_statuses = @q.result(:distinct => true).includes(:requests).page(params[:page]).per(10)
   end
 
   # GET /approval_statuses/1

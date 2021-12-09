@@ -1,0 +1,136 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "exhibits_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :exhibit_name_cont, "Exhibit name contains" %>
+    <%= f.text_field :exhibit_name_cont, :class => "form-control", :placeholder => "Exhibit name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :status_id, "Status" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :status_id_gteq, :class => "form-control", :placeholder => "Status greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :status_id_lteq, :class => "form-control", :placeholder => "Status less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :exhibit_description_cont, "Exhibit description contains" %>
+    <%= f.text_field :exhibit_description_cont, :class => "form-control", :placeholder => "Exhibit description contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :attraction_attraction_name_cont, "Attraction attraction_name contains" %>
+    <%= f.text_field :attraction_attraction_name_cont, :class => "form-control", :placeholder => "Attraction attraction_name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Recording Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='recordingsgteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :recordings_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Recording Created at greater than or equal to", :data => {:target => '#recordingsgteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#recordingsgteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='recordingslteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :recordings_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Recording Created at less than or equal to", :data => {:target => '#recordingslteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#recordingslteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#recordingsgteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#recordingslteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#recordingsgteqcreated_atPicker').on("dp.change", function (e) {
+              $('#recordingslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#recordingslteqcreated_atPicker').on("dp.change", function (e) {
+              $('#recordingsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :requests_request_name_cont, "Requests request_name contains" %>
+    <%= f.text_field :requests_request_name_cont, :class => "form-control", :placeholder => "Requests request_name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :modification_request_request_name_cont, "Modification request request_name contains" %>
+    <%= f.text_field :modification_request_request_name_cont, :class => "form-control", :placeholder => "Modification request request_name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :users_first_name_cont, "Users first_name contains" %>
+    <%= f.text_field :users_first_name_cont, :class => "form-control", :placeholder => "Users first_name contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/exhibits" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#exhibits_filters">
+  Show filters
+</a>

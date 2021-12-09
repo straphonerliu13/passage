@@ -3,7 +3,8 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = Request.page(params[:page]).per(10)
+    @q = Request.ransack(params[:q])
+    @requests = @q.result(:distinct => true).includes(:approver, :attraction, :exhibit, :status, :main_exhibit, :main_attraction).page(params[:page]).per(10)
   end
 
   # GET /requests/1

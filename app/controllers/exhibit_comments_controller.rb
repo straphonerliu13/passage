@@ -3,7 +3,8 @@ class ExhibitCommentsController < ApplicationController
 
   # GET /exhibit_comments
   def index
-    @exhibit_comments = ExhibitComment.page(params[:page]).per(10)
+    @q = ExhibitComment.ransack(params[:q])
+    @exhibit_comments = @q.result(:distinct => true).includes(:commenter, :exhibit).page(params[:page]).per(10)
   end
 
   # GET /exhibit_comments/1

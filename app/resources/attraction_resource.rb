@@ -15,6 +15,8 @@ class AttractionResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :bookmarks
+
   has_many   :exhibits
 
   has_many   :attraction_comments

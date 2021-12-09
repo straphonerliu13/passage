@@ -16,7 +16,7 @@
 
     <%= f.label :exhibit_id %>
     <!-- Input for exhibit_id start -->
-    <%= f.number_field :exhibit_id, class: exhibit_class, placeholder: "Enter exhibit" %>
+    <%= f.collection_select :exhibit_id, Exhibit.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for exhibit_id end -->
     <% if exhibit_was_invalid %>
       <% recording.errors.full_messages_for(:exhibit).each do |message| %>

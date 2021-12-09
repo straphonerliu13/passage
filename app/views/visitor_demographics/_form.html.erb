@@ -1,0 +1,57 @@
+<% was_validated = visitor_demographic.errors.any? %>
+
+<%= form_with(model: visitor_demographic, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for demographic_name start -->
+  <div class="form-group">
+    <% demographic_name_class = "form-control" %>
+    <% demographic_name_was_invalid = visitor_demographic.errors.include?(:demographic_name) %>
+
+    <% if was_validated %>
+      <% if demographic_name_was_invalid %>
+        <% demographic_name_class << " is-invalid" %>
+      <% else %>
+        <% demographic_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :demographic_name %>
+    <!-- Input for demographic_name start -->
+    <%= f.text_field :demographic_name, class: demographic_name_class, placeholder: "Enter demographic name" %>
+    <!-- Input for demographic_name end -->
+    <% if demographic_name_was_invalid %>
+      <% visitor_demographic.errors.full_messages_for(:demographic_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for demographic_name end -->
+  <!-- Label and input for demographic_description start -->
+  <div class="form-group">
+    <% demographic_description_class = "form-control" %>
+    <% demographic_description_was_invalid = visitor_demographic.errors.include?(:demographic_description) %>
+
+    <% if was_validated %>
+      <% if demographic_description_was_invalid %>
+        <% demographic_description_class << " is-invalid" %>
+      <% else %>
+        <% demographic_description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :demographic_description %>
+    <!-- Input for demographic_description start -->
+    <%= f.text_area :demographic_description, class: demographic_description_class, placeholder: "Enter demographic description" %>
+    <!-- Input for demographic_description end -->
+    <% if demographic_description_was_invalid %>
+      <% visitor_demographic.errors.full_messages_for(:demographic_description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for demographic_description end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

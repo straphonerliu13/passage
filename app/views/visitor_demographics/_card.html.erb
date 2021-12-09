@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Visitor Demographic #<%= visitor_demographic.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Demographic name</dt>
+      <!-- Display demographic_name start -->
+      <dd><%= visitor_demographic.demographic_name %></dd>
+      <!-- Display demographic_name end -->
+
+      <dt>Demographic description</dt>
+      <!-- Display demographic_description start -->
+      <dd><%= visitor_demographic.demographic_description %></dd>
+      <!-- Display demographic_description end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back visitor_demographic, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link visitor_demographic start -->
+      <div class="col">
+        <%= link_to edit_visitor_demographic_url(visitor_demographic), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link visitor_demographic end -->
+
+      <!-- Delete link visitor_demographic start -->
+      <div class="col">
+        <%= link_to visitor_demographic, method: :delete, data: { confirm: "Do you really want to delete this visitor_demographic?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link visitor_demographic end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(visitor_demographic.updated_at) %> ago
+  </div>
+</div>

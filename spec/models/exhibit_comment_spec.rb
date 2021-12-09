@@ -4,6 +4,8 @@ RSpec.describe ExhibitComment, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:exhibit) }
+
     it { should belong_to(:commenter) }
 
     end

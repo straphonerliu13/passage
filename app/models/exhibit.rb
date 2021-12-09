@@ -1,6 +1,9 @@
 class Exhibit < ApplicationRecord
   # Direct associations
 
+  has_many   :exhibit_comments,
+             :dependent => :destroy
+
   belongs_to :attraction
 
   # Indirect associations

@@ -27,6 +27,8 @@ class AttractionResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :users
+
   has_many :recordings do
     assign_each do |attraction, recordings|
       recordings.select do |r|

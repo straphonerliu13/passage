@@ -22,7 +22,9 @@
 
       <dt>Attraction image</dt>
       <!-- Display attraction_image start -->
-      <dd><%= attraction.attraction_image %></dd>
+      <dd>
+        <%= cl_image_tag @attraction.attraction_image, class: "img-fluid" %>
+      </dd>
       <!-- Display attraction_image end -->
 
       <dt>Status</dt>

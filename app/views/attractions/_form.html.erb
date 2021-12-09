@@ -94,7 +94,7 @@
 
     <%= f.label :attraction_image %>
     <!-- Input for attraction_image start -->
-    <%= f.text_field :attraction_image, class: attraction_image_class, placeholder: "Enter attraction image" %>
+    <%= f.file_field :attraction_image, class: "form-control" %>
     <!-- Input for attraction_image end -->
     <% if attraction_image_was_invalid %>
       <% attraction.errors.full_messages_for(:attraction_image).each do |message| %>

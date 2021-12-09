@@ -12,7 +12,9 @@
 
       <dt>Audio upload</dt>
       <!-- Display audio_upload start -->
-      <dd><%= recording.audio_upload %></dd>
+      <dd>
+        <%= cl_image_tag @recording.audio_upload, class: "img-fluid" %>
+      </dd>
       <!-- Display audio_upload end -->
 
       <dt>Video upload</dt>

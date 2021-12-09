@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :user_image, UserImageUploader
+
   # Direct associations
 
   belongs_to :demographic,

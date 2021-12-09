@@ -1,4 +1,6 @@
 class Recording < ApplicationRecord
+  mount_uploader :audio_upload, AudioUploadUploader
+
   # Direct associations
 
   belongs_to :exhibit

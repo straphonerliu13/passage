@@ -1,4 +1,6 @@
 class Exhibit < ApplicationRecord
+  mount_uploader :exhibit_image, ExhibitImageUploader
+
   # Direct associations
 
   has_many   :requests,

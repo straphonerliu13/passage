@@ -198,7 +198,7 @@
 
     <%= f.label :user_image %>
     <!-- Input for user_image start -->
-    <%= f.text_field :user_image, class: user_image_class, placeholder: "Enter user image" %>
+    <%= f.file_field :user_image, class: "form-control" %>
     <!-- Input for user_image end -->
     <% if user_image_was_invalid %>
       <% user.errors.full_messages_for(:user_image).each do |message| %>

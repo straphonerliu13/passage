@@ -22,7 +22,9 @@
 
       <dt>Exhibit image</dt>
       <!-- Display exhibit_image start -->
-      <dd><%= exhibit.exhibit_image %></dd>
+      <dd>
+        <%= cl_image_tag @exhibit.exhibit_image, class: "img-fluid" %>
+      </dd>
       <!-- Display exhibit_image end -->
 
       <dt>Exhibit location</dt>

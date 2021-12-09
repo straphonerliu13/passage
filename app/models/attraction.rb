@@ -1,4 +1,6 @@
 class Attraction < ApplicationRecord
+  mount_uploader :attraction_image, AttractionImageUploader
+
   # Direct associations
 
   belongs_to :attraction_category

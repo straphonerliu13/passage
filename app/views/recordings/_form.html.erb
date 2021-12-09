@@ -42,7 +42,7 @@
 
     <%= f.label :audio_upload %>
     <!-- Input for audio_upload start -->
-    <%= f.text_field :audio_upload, class: audio_upload_class, placeholder: "Enter audio upload" %>
+    <%= f.file_field :audio_upload, class: "form-control" %>
     <!-- Input for audio_upload end -->
     <% if audio_upload_was_invalid %>
       <% recording.errors.full_messages_for(:audio_upload).each do |message| %>

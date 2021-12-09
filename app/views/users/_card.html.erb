@@ -42,7 +42,9 @@
 
       <dt>User image</dt>
       <!-- Display user_image start -->
-      <dd><%= user.user_image %></dd>
+      <dd>
+        <%= cl_image_tag @user.user_image, class: "img-fluid" %>
+      </dd>
       <!-- Display user_image end -->
 
       <dt>User bio</dt>

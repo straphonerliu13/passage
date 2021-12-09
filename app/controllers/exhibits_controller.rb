@@ -8,6 +8,10 @@ class ExhibitsController < ApplicationController
 
   # GET /exhibits/1
   def show
+    @request = Request.new
+    @recording = Recording.new
+    @bookmark = Bookmark.new
+    @exhibit_comment = ExhibitComment.new
   end
 
   # GET /exhibits/new
@@ -24,7 +28,12 @@ class ExhibitsController < ApplicationController
     @exhibit = Exhibit.new(exhibit_params)
 
     if @exhibit.save
-      redirect_to @exhibit, notice: 'Exhibit was successfully created.'
+      message = 'Exhibit was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @exhibit, notice: message
+      end
     else
       render :new
     end

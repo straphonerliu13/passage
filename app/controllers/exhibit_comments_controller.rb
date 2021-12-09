@@ -24,7 +24,12 @@ class ExhibitCommentsController < ApplicationController
     @exhibit_comment = ExhibitComment.new(exhibit_comment_params)
 
     if @exhibit_comment.save
-      redirect_to @exhibit_comment, notice: 'Exhibit comment was successfully created.'
+      message = 'ExhibitComment was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @exhibit_comment, notice: message
+      end
     else
       render :new
     end

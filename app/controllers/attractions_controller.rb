@@ -8,6 +8,10 @@ class AttractionsController < ApplicationController
 
   # GET /attractions/1
   def show
+    @request = Request.new
+    @bookmark = Bookmark.new
+    @exhibit = Exhibit.new
+    @attraction_comment = AttractionComment.new
   end
 
   # GET /attractions/new
@@ -24,7 +28,12 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.new(attraction_params)
 
     if @attraction.save
-      redirect_to @attraction, notice: 'Attraction was successfully created.'
+      message = 'Attraction was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @attraction, notice: message
+      end
     else
       render :new
     end

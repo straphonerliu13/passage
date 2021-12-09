@@ -24,7 +24,12 @@ class AttractionCommentsController < ApplicationController
     @attraction_comment = AttractionComment.new(attraction_comment_params)
 
     if @attraction_comment.save
-      redirect_to @attraction_comment, notice: 'Attraction comment was successfully created.'
+      message = 'AttractionComment was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @attraction_comment, notice: message
+      end
     else
       render :new
     end

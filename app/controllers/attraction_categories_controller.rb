@@ -8,6 +8,7 @@ class AttractionCategoriesController < ApplicationController
 
   # GET /attraction_categories/1
   def show
+    @attraction = Attraction.new
   end
 
   # GET /attraction_categories/new

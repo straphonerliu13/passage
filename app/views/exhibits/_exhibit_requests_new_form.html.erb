@@ -1,0 +1,71 @@
+<!-- Form request start -->
+<%= form_with(model: @request, local: true) do |f| %>
+<!-- Form request end -->
+
+  <!-- Label and input for request_name start -->
+  <div class="form-group">
+    <%= f.label :request_name %>
+
+    <!-- Input for request_name start -->
+    <%= f.text_field :request_name, class: "form-control" %>
+    <!-- Input for request_name end -->
+  </div>
+  <!-- Label and input for request_name end -->
+
+  <!-- Label and input for request_description start -->
+  <div class="form-group">
+    <%= f.label :request_description %>
+    <!-- Input for request_description start -->
+    <%= f.text_area :request_description, rows: "3", class: "form-control" %>
+    <!-- Input for request_description end -->
+  </div>
+  <!-- Label and input for request_description end -->
+
+  <!-- Label and input for status_id start -->
+  <div class="form-group">
+    <%= f.label :status_id %>
+
+    <!-- Input for status_id start -->
+    <%= f.text_field :status_id, class: "form-control" %>
+    <!-- Input for status_id end -->
+  </div>
+  <!-- Label and input for status_id end -->
+
+  <!-- Label and input for approver_id start -->
+  <div class="form-group">
+    <%= f.label :approver_id %>
+
+    <!-- Input for approver_id start -->
+    <%= f.text_field :approver_id, class: "form-control" %>
+    <!-- Input for approver_id end -->
+  </div>
+  <!-- Label and input for approver_id end -->
+
+  <!-- Label and input for requestor_id start -->
+  <div class="form-group">
+    <%= f.label :requestor_id %>
+
+    <!-- Input for requestor_id start -->
+    <%= f.text_field :requestor_id, class: "form-control" %>
+    <!-- Input for requestor_id end -->
+  </div>
+  <!-- Label and input for requestor_id end -->
+
+  <!-- Label and input for exhibit_id start -->
+  <!-- Input for exhibit_id start -->
+  <%= f.hidden_field :exhibit_id, value: @exhibit.id %>
+  <!-- Input for exhibit_id end -->
+  <!-- Label and input for exhibit_id end -->
+
+  <!-- Label and input for attraction_id start -->
+  <div class="form-group">
+    <%= f.label :attraction_id %>
+
+    <!-- Input for attraction_id start -->
+    <%= f.text_field :attraction_id, class: "form-control" %>
+    <!-- Input for attraction_id end -->
+  </div>
+  <!-- Label and input for attraction_id end -->
+
+  <%= f.submit "Create request", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

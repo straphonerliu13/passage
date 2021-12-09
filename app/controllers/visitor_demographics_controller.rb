@@ -8,6 +8,7 @@ class VisitorDemographicsController < ApplicationController
 
   # GET /visitor_demographics/1
   def show
+    @user = User.new
   end
 
   # GET /visitor_demographics/new

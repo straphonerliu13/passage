@@ -8,6 +8,7 @@ class UserTypesController < ApplicationController
 
   # GET /user_types/1
   def show
+    @user = User.new
   end
 
   # GET /user_types/new

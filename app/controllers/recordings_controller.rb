@@ -24,7 +24,12 @@ class RecordingsController < ApplicationController
     @recording = Recording.new(recording_params)
 
     if @recording.save
-      redirect_to @recording, notice: 'Recording was successfully created.'
+      message = 'Recording was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @recording, notice: message
+      end
     else
       render :new
     end

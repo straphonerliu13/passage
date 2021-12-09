@@ -1,0 +1,61 @@
+<!-- Form exhibit start -->
+<%= form_with(model: @exhibit, local: true) do |f| %>
+<!-- Form exhibit end -->
+
+  <!-- Label and input for exhibit_name start -->
+  <div class="form-group">
+    <%= f.label :exhibit_name %>
+
+    <!-- Input for exhibit_name start -->
+    <%= f.text_field :exhibit_name, class: "form-control" %>
+    <!-- Input for exhibit_name end -->
+  </div>
+  <!-- Label and input for exhibit_name end -->
+
+  <!-- Label and input for attraction_id start -->
+  <!-- Input for attraction_id start -->
+  <%= f.hidden_field :attraction_id, value: @attraction.id %>
+  <!-- Input for attraction_id end -->
+  <!-- Label and input for attraction_id end -->
+
+  <!-- Label and input for exhibit_description start -->
+  <div class="form-group">
+    <%= f.label :exhibit_description %>
+    <!-- Input for exhibit_description start -->
+    <%= f.text_area :exhibit_description, rows: "3", class: "form-control" %>
+    <!-- Input for exhibit_description end -->
+  </div>
+  <!-- Label and input for exhibit_description end -->
+
+  <!-- Label and input for exhibit_image start -->
+  <div class="form-group">
+    <%= f.label :exhibit_image %>
+
+    <!-- Input for exhibit_image start -->
+    <%= f.text_field :exhibit_image, class: "form-control" %>
+    <!-- Input for exhibit_image end -->
+  </div>
+  <!-- Label and input for exhibit_image end -->
+
+  <!-- Label and input for exhibit_location start -->
+  <div class="form-group">
+    <%= f.label :exhibit_location %>
+
+    <!-- Input for exhibit_location start -->
+    <%= f.text_field :exhibit_location, class: "form-control" %>
+    <!-- Input for exhibit_location end -->
+  </div>
+  <!-- Label and input for exhibit_location end -->
+
+  <!-- Label and input for status_id start -->
+  <div class="form-group">
+    <%= f.label :status_id %>
+
+    <!-- Input for status_id start -->
+    <%= f.text_field :status_id, class: "form-control" %>
+    <!-- Input for status_id end -->
+  </div>
+  <!-- Label and input for status_id end -->
+
+  <%= f.submit "Create exhibit", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

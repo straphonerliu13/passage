@@ -8,6 +8,7 @@ class ApprovalStatusesController < ApplicationController
 
   # GET /approval_statuses/1
   def show
+    @request = Request.new
   end
 
   # GET /approval_statuses/new

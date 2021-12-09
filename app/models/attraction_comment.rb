@@ -1,6 +1,8 @@
 class AttractionComment < ApplicationRecord
   # Direct associations
 
+  belongs_to :attraction
+
   belongs_to :commenter,
              :class_name => "User"
 

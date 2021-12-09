@@ -1,6 +1,9 @@
 class Attraction < ApplicationRecord
   # Direct associations
 
+  has_many   :attraction_comments,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

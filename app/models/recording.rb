@@ -1,6 +1,8 @@
 class Recording < ApplicationRecord
   # Direct associations
 
+  belongs_to :exhibit
+
   # Indirect associations
 
   # Validations

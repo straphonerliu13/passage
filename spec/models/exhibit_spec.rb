@@ -4,6 +4,8 @@ RSpec.describe Exhibit, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:recordings) }
+
     it { should have_many(:bookmarks) }
 
     it { should have_many(:exhibit_comments) }

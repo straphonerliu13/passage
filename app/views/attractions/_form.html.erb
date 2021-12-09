@@ -250,7 +250,7 @@
 
     <%= f.label :attraction_category_id %>
     <!-- Input for attraction_category_id start -->
-    <%= f.number_field :attraction_category_id, class: attraction_category_class, placeholder: "Enter attraction category" %>
+    <%= f.collection_select :attraction_category_id, AttractionCategory.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for attraction_category_id end -->
     <% if attraction_category_was_invalid %>
       <% attraction.errors.full_messages_for(:attraction_category).each do |message| %>

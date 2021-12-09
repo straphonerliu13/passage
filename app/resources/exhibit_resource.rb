@@ -11,6 +11,8 @@ class ExhibitResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :requests
+
   has_many   :recordings
 
   has_many   :bookmarks

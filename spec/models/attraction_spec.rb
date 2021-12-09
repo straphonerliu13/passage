@@ -18,6 +18,8 @@ RSpec.describe Attraction, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:modification_requests) }
+
     end
 
     describe "Validations" do

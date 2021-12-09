@@ -1,25 +1,20 @@
 class RecordingsController < ApplicationController
   before_action :set_recording, only: %i[show edit update destroy]
 
-  # GET /recordings
   def index
     @q = Recording.ransack(params[:q])
     @recordings = @q.result(distinct: true).includes(:exhibit,
                                                      :attraction).page(params[:page]).per(10)
   end
 
-  # GET /recordings/1
   def show; end
 
-  # GET /recordings/new
   def new
     @recording = Recording.new
   end
 
-  # GET /recordings/1/edit
   def edit; end
 
-  # POST /recordings
   def create
     @recording = Recording.new(recording_params)
 
@@ -35,7 +30,6 @@ class RecordingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /recordings/1
   def update
     if @recording.update(recording_params)
       redirect_to @recording, notice: "Recording was successfully updated."
@@ -44,7 +38,6 @@ class RecordingsController < ApplicationController
     end
   end
 
-  # DELETE /recordings/1
   def destroy
     @recording.destroy
     message = "Recording was successfully deleted."
@@ -57,12 +50,10 @@ class RecordingsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_recording
     @recording = Recording.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def recording_params
     params.require(:recording).permit(:exhibit_id, :audio_upload,
                                       :video_upload)

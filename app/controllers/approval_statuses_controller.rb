@@ -1,26 +1,21 @@
 class ApprovalStatusesController < ApplicationController
   before_action :set_approval_status, only: %i[show edit update destroy]
 
-  # GET /approval_statuses
   def index
     @q = ApprovalStatus.ransack(params[:q])
     @approval_statuses = @q.result(distinct: true).includes(:requests).page(params[:page]).per(10)
   end
 
-  # GET /approval_statuses/1
   def show
     @request = Request.new
   end
 
-  # GET /approval_statuses/new
   def new
     @approval_status = ApprovalStatus.new
   end
 
-  # GET /approval_statuses/1/edit
   def edit; end
 
-  # POST /approval_statuses
   def create
     @approval_status = ApprovalStatus.new(approval_status_params)
 
@@ -32,7 +27,6 @@ class ApprovalStatusesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /approval_statuses/1
   def update
     if @approval_status.update(approval_status_params)
       redirect_to @approval_status,
@@ -42,7 +36,6 @@ class ApprovalStatusesController < ApplicationController
     end
   end
 
-  # DELETE /approval_statuses/1
   def destroy
     @approval_status.destroy
     redirect_to approval_statuses_url,
@@ -51,12 +44,10 @@ class ApprovalStatusesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_approval_status
     @approval_status = ApprovalStatus.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def approval_status_params
     params.require(:approval_status).permit(:status_name)
   end

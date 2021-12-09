@@ -1,7 +1,6 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: %i[show edit update destroy]
 
-  # GET /attractions
   def index
     @q = Attraction.ransack(params[:q])
     @attractions = @q.result(distinct: true).includes(:attraction_comments,
@@ -9,11 +8,9 @@ class AttractionsController < ApplicationController
     @location_hash = Gmaps4rails.build_markers(@attractions.where.not(attraction_location_latitude: nil)) do |attraction, marker|
       marker.lat attraction.attraction_location_latitude
       marker.lng attraction.attraction_location_longitude
-      marker.infowindow "<h5><a href='/attractions/#{attraction.id}'>#{attraction.attraction_name}</a></h5><small>#{attraction.attraction_location_formatted_address}</small>"
     end
   end
 
-  # GET /attractions/1
   def show
     @request = Request.new
     @bookmark = Bookmark.new
@@ -21,15 +18,12 @@ class AttractionsController < ApplicationController
     @attraction_comment = AttractionComment.new
   end
 
-  # GET /attractions/new
   def new
     @attraction = Attraction.new
   end
 
-  # GET /attractions/1/edit
   def edit; end
 
-  # POST /attractions
   def create
     @attraction = Attraction.new(attraction_params)
 
@@ -45,7 +39,6 @@ class AttractionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /attractions/1
   def update
     if @attraction.update(attraction_params)
       redirect_to @attraction, notice: "Attraction was successfully updated."
@@ -54,7 +47,6 @@ class AttractionsController < ApplicationController
     end
   end
 
-  # DELETE /attractions/1
   def destroy
     @attraction.destroy
     message = "Attraction was successfully deleted."
@@ -67,12 +59,10 @@ class AttractionsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_attraction
     @attraction = Attraction.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def attraction_params
     params.require(:attraction).permit(:attraction_name,
                                        :attraction_location, :attraction_description, :attraction_image, :status_id, :phone_number, :email_address, :hours_of_operation, :cost_of_entry, :attraction_category_id)

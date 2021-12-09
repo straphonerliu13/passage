@@ -1,25 +1,20 @@
 class ExhibitCommentsController < ApplicationController
   before_action :set_exhibit_comment, only: %i[show edit update destroy]
 
-  # GET /exhibit_comments
   def index
     @q = ExhibitComment.ransack(params[:q])
     @exhibit_comments = @q.result(distinct: true).includes(:commenter,
                                                            :exhibit).page(params[:page]).per(10)
   end
 
-  # GET /exhibit_comments/1
   def show; end
 
-  # GET /exhibit_comments/new
   def new
     @exhibit_comment = ExhibitComment.new
   end
 
-  # GET /exhibit_comments/1/edit
   def edit; end
 
-  # POST /exhibit_comments
   def create
     @exhibit_comment = ExhibitComment.new(exhibit_comment_params)
 
@@ -35,7 +30,6 @@ class ExhibitCommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /exhibit_comments/1
   def update
     if @exhibit_comment.update(exhibit_comment_params)
       redirect_to @exhibit_comment,
@@ -45,7 +39,6 @@ class ExhibitCommentsController < ApplicationController
     end
   end
 
-  # DELETE /exhibit_comments/1
   def destroy
     @exhibit_comment.destroy
     message = "ExhibitComment was successfully deleted."
@@ -58,12 +51,10 @@ class ExhibitCommentsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_exhibit_comment
     @exhibit_comment = ExhibitComment.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def exhibit_comment_params
     params.require(:exhibit_comment).permit(:commenter_id, :exhibit_id,
                                             :comment_text)

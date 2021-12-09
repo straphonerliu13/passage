@@ -4,6 +4,8 @@ RSpec.describe Attraction, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:attraction_category) }
+
     it { should have_many(:requests) }
 
     it { should have_many(:bookmarks) }

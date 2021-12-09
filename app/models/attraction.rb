@@ -1,6 +1,8 @@
 class Attraction < ApplicationRecord
   # Direct associations
 
+  belongs_to :attraction_category
+
   has_many   :requests,
              :dependent => :destroy
 

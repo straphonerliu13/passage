@@ -5,6 +5,9 @@ class AttractionCategory < ApplicationRecord
 
   # Direct associations
 
+  has_many   :attractions,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

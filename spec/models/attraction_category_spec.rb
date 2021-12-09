@@ -4,6 +4,8 @@ RSpec.describe AttractionCategory, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:attractions) }
+
     end
 
     describe "InDirect Associations" do

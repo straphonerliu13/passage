@@ -1,6 +1,8 @@
 class Request < ApplicationRecord
   # Direct associations
 
+  belongs_to :attraction
+
   belongs_to :approver,
              :class_name => "User"
 

@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Attraction Comment #<%= attraction_comment.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Commenter</dt>
+      <!-- Display commenter_id start -->
+      <dd><%= attraction_comment.commenter_id %></dd>
+      <!-- Display commenter_id end -->
+
+      <dt>Attraction</dt>
+      <!-- Display attraction_id start -->
+      <dd><%= attraction_comment.attraction_id %></dd>
+      <!-- Display attraction_id end -->
+
+      <dt>Comment text</dt>
+      <!-- Display comment_text start -->
+      <dd><%= attraction_comment.comment_text %></dd>
+      <!-- Display comment_text end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back attraction_comment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link attraction_comment start -->
+      <div class="col">
+        <%= link_to edit_attraction_comment_url(attraction_comment), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link attraction_comment end -->
+
+      <!-- Delete link attraction_comment start -->
+      <div class="col">
+        <%= link_to attraction_comment, method: :delete, data: { confirm: "Do you really want to delete this attraction_comment?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link attraction_comment end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(attraction_comment.updated_at) %> ago
+  </div>
+</div>

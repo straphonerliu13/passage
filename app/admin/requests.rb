@@ -1,5 +1,7 @@
 ActiveAdmin.register Request do
 
+ permit_params :request_name, :request_description, :status_id, :approver_id, :requestor_id, :exhibit_id, :attraction_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

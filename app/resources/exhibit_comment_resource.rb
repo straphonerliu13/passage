@@ -8,6 +8,8 @@ class ExhibitCommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :exhibit
+
   belongs_to :commenter,
              resource: UserResource
 

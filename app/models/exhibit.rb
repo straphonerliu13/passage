@@ -1,6 +1,8 @@
 class Exhibit < ApplicationRecord
   # Direct associations
 
+  belongs_to :attraction
+
   # Indirect associations
 
   # Validations

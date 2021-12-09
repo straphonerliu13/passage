@@ -4,6 +4,8 @@ RSpec.describe Exhibit, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:attraction) }
+
     end
 
     describe "InDirect Associations" do

@@ -12,6 +12,9 @@ class RequestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :approver,
+             resource: UserResource
+
   # Indirect associations
 
 end

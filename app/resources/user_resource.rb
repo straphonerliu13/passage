@@ -16,6 +16,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :requests,
+             foreign_key: :approver_id
+
   has_many   :bookmarks
 
   has_many   :exhibit_comments,

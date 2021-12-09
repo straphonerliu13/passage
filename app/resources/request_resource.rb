@@ -24,4 +24,6 @@ class RequestResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :main_exhibit,
+             resource: ExhibitResource
 end

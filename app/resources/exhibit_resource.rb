@@ -23,4 +23,6 @@ class ExhibitResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :modification_request,
+             resource: RequestResource
 end

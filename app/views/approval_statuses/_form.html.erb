@@ -16,7 +16,7 @@
 
     <%= f.label :status_name %>
     <!-- Input for status_name start -->
-    <%= f.number_field :status_name, class: status_name_class, placeholder: "Enter status name" %>
+    <%= f.select :status_name, options_for_select(ApprovalStatus.status_names.keys), {}, class: "form-control" %>
     <!-- Input for status_name end -->
     <% if status_name_was_invalid %>
       <% approval_status.errors.full_messages_for(:status_name).each do |message| %>

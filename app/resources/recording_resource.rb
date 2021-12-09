@@ -12,4 +12,11 @@ class RecordingResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :attraction
+
+  filter :attraction_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:attraction).where(:exhibits => {:attraction_id => value})
+    end
+  end
 end

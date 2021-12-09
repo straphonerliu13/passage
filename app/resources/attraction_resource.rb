@@ -27,6 +27,14 @@ class AttractionResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :recordings do
+    assign_each do |attraction, recordings|
+      recordings.select do |r|
+        r.id.in?(attraction.recordings.map(&:id))
+      end
+    end
+  end
+
   has_many :modification_requests, resource: RequestResource do
     assign_each do |attraction, requests|
       requests.select do |r|

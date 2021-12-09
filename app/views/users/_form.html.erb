@@ -276,7 +276,7 @@
 
     <%= f.label :demographic_id %>
     <!-- Input for demographic_id start -->
-    <%= f.number_field :demographic_id, class: demographic_class, placeholder: "Enter demographic" %>
+    <%= f.collection_select :demographic_id, VisitorDemographic.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for demographic_id end -->
     <% if demographic_was_invalid %>
       <% user.errors.full_messages_for(:demographic).each do |message| %>

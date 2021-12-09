@@ -102,7 +102,7 @@
     <%= f.label :demographic_id %>
 
     <!-- Input for demographic_id start -->
-    <%= f.text_field :demographic_id, class: "form-control" %>
+    <%= f.collection_select :demographic_id, VisitorDemographic.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for demographic_id end -->
   </div>
   <!-- Label and input for demographic_id end -->

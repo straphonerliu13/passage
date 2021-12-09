@@ -42,7 +42,7 @@
 
     <%= f.label :category_description %>
     <!-- Input for category_description start -->
-    <%= f.number_field :category_description, class: category_description_class, placeholder: "Enter category description" %>
+    <%= f.select :category_description, options_for_select(AttractionCategory.category_descriptions.keys), {}, class: "form-control" %>
     <!-- Input for category_description end -->
     <% if category_description_was_invalid %>
       <% attraction_category.errors.full_messages_for(:category_description).each do |message| %>

@@ -17,7 +17,7 @@
     <%= f.label :exhibit_id %>
 
     <!-- Input for exhibit_id start -->
-    <%= f.text_field :exhibit_id, class: "form-control" %>
+    <%= f.collection_select :exhibit_id, Exhibit.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for exhibit_id end -->
   </div>
   <!-- Label and input for exhibit_id end -->

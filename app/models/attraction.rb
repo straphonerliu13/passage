@@ -17,6 +17,10 @@ class Attraction < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :recordings,
+             :through => :exhibits,
+             :source => :recordings
+
   has_many   :modification_requests,
              :through => :exhibits,
              :source => :requests

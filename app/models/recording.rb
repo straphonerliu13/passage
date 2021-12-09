@@ -5,6 +5,10 @@ class Recording < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :attraction,
+             :through => :exhibit,
+             :source => :attraction
+
   # Validations
 
   # Scopes
